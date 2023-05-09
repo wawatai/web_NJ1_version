@@ -1,445 +1,242 @@
 .mainWrap {
     width: 100%;
     height: auto;
+    margin-bottom: 100px;
 
     .center {
-        max-width: 1650px;
+        width: 1400px;
         height: auto;
         margin: 0 auto;
-        padding-bottom: 30px;
 
         //快速選擇
         .quickBox {
-            width: auto;
+            width: 1350px;
             height: auto;
-            margin: 20px 0;
             display: flex;
-            justify-content: center;
+            margin: 0 auto 100px;
 
             li {
-                width: auto;
-                height: auto;
-                margin: 0 10px;
-
-                &.love {
-                    display: none;
-
-                    &.display {
-                        display: block;
-                    }
-                }
+                width: 225px;
+                height: 245px;
+                position: relative;
+                cursor: pointer;
 
                 &:hover,&:active,&.active {
-                    
-                    button {
-                        transform: rotateY(-90deg);
+                    background-position-y: 100%;
 
-                        .inner {
-                            opacity: 1;
-                            transform: rotateY(90deg);
-                            transition: 0.5s all;
-                            transition-delay: 0.2s;
-                        }
+                    .arrow_ic {
+                        opacity: 1;
                     }
                 }
-                
-                button {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
-                    background: $quick_BG;
-                    width: 160px;
-                    height: 160px;
-                    border-radius: 8px;
-                    transition: all .2s;
-                    transform-style: preserve-3d;
-                    transform-origin: bottom;
-                    position: relative;
-                    cursor: pointer;
 
-                    i {
-                        display: block;
-                        width: 50px;
-                        height: 50px;
-                        margin-bottom: 25px;
+                i:not(.arrow_ic) {
+                    width: 100px;
+                    height: 100px;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
 
-                        &.love_ic {
-                            background-position-x: 0;
-                        }
-                        &.sport_ic {
-                            background-position-x: 20%;
-                        }
-                        &.live_ic {
-                            background-position-x: 40%;
-                        }
-                        &.slot_ic {
-                            background-position-x: 60%;
-                        }
-                        &.fish_ic {
-                            background-position-x: 80%;
-                        }
-                        &.board_ic {
-                            background-position-x: 100%;
-                        }
+                    &.hot {
+                        background-position-x: 0;
                     }
-
-                    p {
-                        color: $quick_Word;
-                        font-size: 16px;
-                        font-weight: bold;
+                    &.soccer {
+                        background-position-x: 20%;
                     }
-
-                    .inner {
-                        position: absolute;
-                        left: 0;
-                        bottom: 0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        flex-direction: column;
-                        background: linear-gradient(180deg,#ff9b00 0,#ffb600);
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 8px;
-                        opacity: 0;
-
-                        i {
-                            background-position-y: 100%;
-                        }
-
-                        p {
-                            color: $quick_Hover;
-                        }
+                    &.live {
+                        background-position-x: 40%;
+                    }
+                    &.slot {
+                        background-position-x: 60%;
+                    }
+                    &.fish {
+                        background-position-x: 80%;
+                    }
+                    &.board {
+                        background-position-x: 100%;
                     }
                 }
+
+                p {
+                    color: $mainFont_1;
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-shadow: 2px 3px 5px $mainShadow_1,0px 5px 10px $mainShadow_1;
+                    white-space: nowrap;
+                    position: absolute;
+                    left: 42%;
+                    transform: translateX(-50%);
+                    bottom: 36px;
+                }
+
+                .arrow_ic {
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 0 18px 12px 18px;
+                    border-color: $mainFont_1 transparent;
+                    position: absolute;
+                    left: 39%;
+                    transform: translateX(-50%);
+                    bottom: -25px;
+                    opacity: 0;
+                    transition: 0.3s all;
+                    filter: drop-shadow(0px 3px 2px #00f9ff) drop-shadow(0px 0px 10px #00f9ff);
+                }
+            }
+        }
+
+        //typeLine
+        .typeLine {
+            width: 1280px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 auto;
+
+            i {
+                width: 512px;
+                height: 36px;
+                margin-top: 26px;
+
+                &:last-child {
+                    transform: scaleX(-1);
+                }
+            }
+
+            .textBox {
+                width: auto;
+                height: auto;
+
+                .title {
+                    color: $mainFont_1;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+
+                .sub {
+                    color: $typeLine_subColor;
+                    font-size: 13px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+            }
+
+            .underLine {
+                width: 100%;
+                height: 48px;
             }
         }
 
         //遊戲平台選單
         .typeList {
-            display: none;
-            max-width: 1650px;
-            min-width: 1400px;
+            width: 1280px;
             height: auto;
-            margin: 40px auto 60px;
-            grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
-            grid-gap: 60px 20px;
-            box-sizing: border-box;
+            min-height: 1275px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            align-content: flex-start;
+            gap: 100px 30px;
+            margin: 60px auto 80px;
 
-            &.loveMode {
-                max-width: unset;
-                width: 1400px;
-                padding: 0 20px;
-                grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
-                grid-gap: 20px;
-            }
-
-            &.display {
-                display: grid;
-            }
-
-            li:not(.loveGame) {
+            li {
+                display: none;
                 width: auto;
                 height: auto;
+                border-radius: 16px;
                 position: relative;
                 cursor: pointer;
-                display: none;
 
                 &.display {
                     display: block;
                 }
 
-                &:nth-of-type(4n) {
-                    margin-right: 0px;
-                }
-
-                p {
-                    color: $type_Word;
-                    width: 100%;
-                    text-align: center;
-                    font-size: 16px;
-                    font-weight: bold;
-                    padding-top: 10px;
-                }
-
-                .fixBox {
-                    display: none;
-                    position: absolute;
+                a {
+                    display: block;
                     width: 100%;
                     height: 100%;
-                    border-radius: 5px;
-                    background: $filter;
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
-                    top: 0;
-                    left: 0;
-                    cursor: not-allowed;
 
-                    &.display {
-                        display: flex;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        object-fit: contain;
                     }
-
+    
                     p {
-                        color: $topGameList_fixWord;
-                        font-size: 14px;
+                        width: 100%;
+                        color: $mainFont_1;
+                        font-size: 20px;
                         font-weight: bold;
-                        line-height: 24px;
-
-                        &.title {
-                            margin-bottom: 30px;
-                            font-size: 26px;
+                        text-align: center;
+                        text-shadow: 2px 3px 5px $mainShadow_1;
+                        margin-top: 20px;
+    
+                        &.small {
+                            font-size: 18px;
                         }
                     }
                 }
-            }
 
-            .loveGame {
-                width: auto;
-                height: auto;
-                border: solid 1px $gameWrap_Border;
-                border-radius: 5px;
-                overflow: hidden;
-                cursor: pointer;
-                box-sizing: border-box;
-                font-size: 0px;
-                position: relative;
+                // .fixBox {
+                //     display: none;
+                //     position: absolute;
+                //     width: 100%;
+                //     height: 100%;
+                //     border-radius: 5px;
+                //     background: $filter;
+                //     align-items: center;
+                //     justify-content: center;
+                //     flex-direction: column;
+                //     top: 0;
+                //     left: 0;
+                //     cursor: not-allowed;
 
-                &:hover,&:active,&.active {
-                    
-                    .btnBox {
-                        opacity: 1;
-                    }
-                }
+                //     &.display {
+                //         display: flex;
+                //     }
 
-                .textBox {
-                    width: 100%;
-                    height: 35px;
-                    display: flex;
-                    align-items: center;
-                    padding: 0 20px;
-                    box-sizing: border-box;
-                    justify-content: space-between;
-                    position: relative;
-                    z-index: 1;
-                    border-top: solid 1px $gameWrap_Border;
-                    background: $gameWrap_WordBG;
+                //     p {
+                //         color: $topGameList_fixWord;
+                //         font-size: 14px;
+                //         font-weight: bold;
+                //         line-height: 24px;
 
-                    p {
-                        font-size: 18px;
-                        font-weight: bold;
-                        color: $gameWrap_Word;
-                    }
-
-                    .love {
-                        width: 23px;
-                        height: 21px;
-                    }
-                }
-
-                .btnBox {
-                    opacity: 0;
-                    position: absolute;
-                    width: 100%;
-                    height: 120px;
-                    background: $filter;
-                    top: 0px;
-                    left: 0px;
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    box-sizing: border-box;
-                    padding: 10px 0;
-                    transition: 0.3s all;
-
-                    button {
-                        width: 140px;
-                        height: 35px;
-                        @include eventBtn;
-
-                        &:nth-of-type(2) {
-                            @include eventBtn_2;
-                        }
-                    }
-                }
+                //         &.title {
+                //             margin-bottom: 30px;
+                //             font-size: 26px;
+                //         }
+                //     }
+                // }
             }
         }
 
-        //排行榜
-        &.rank {
+        //pageBox
+        .pageBox {
+            display: none;
             width: 100%;
-            max-width: 1400px;
             height: auto;
-            
-            .marqueeArea {
-                width: 100%;
-                height: 36px;
-                background: $marquee_BG;
-                border-radius: 36px;
-                margin-bottom: 16px;
-                margin: 16px auto ;
-        
-                .center {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    box-sizing: border-box;
-                    padding: 0 30px;
-        
-                    .marqueeWrap {
-                        width: 100%;
-                        height: auto;
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-end;
-        
-                        .title {
-                            color: $marquee_Title;
-                            font-size: 16px;
-                            font-weight: bold;
-                            width: auto;
-                            height: 100%;
-                            flex-shrink: 0;
-                            padding-right: 10px;
-                        }
-        
-                        .marquee {
-                            width: 100%;
-                            height: auto;
-                            overflow: hidden;
-        
-                            p {
-                                font-size: 16px;
-                                font-weight: bold;
-                                color: $marquee_Word;
-                                display: inline-block;
-                                animation: marquee 10s linear infinite;
-                                padding-left: 100%;
-                                white-space: nowrap;
-                            }
-        
-                            @keyframes marquee {
-                                0% {
-                                    transform: translate(0%);
-                                }
-        
-                                100% {
-                                    transform: translate(-100%);
-                                }
-                            }
-                        }
-                    }
-                }
+            margin-bottom: 10px;
+
+            &.display {
+                display: block;
             }
 
-            .content {
+            ul {
+                width: 100%;
                 height: auto;
-                min-height: 500px;
-                background: $secondBG;
-                padding: 40px;
-                
-                .data {
-                    height: 35px;
-                    padding-top: 15px;
-                    overflow: hidden;
-                    cursor: pointer;
+                display: flex;
+                justify-content: center;
 
-                    &.active {
-                        height: auto;
-                    }
+                li {
+                    width: 36px;
+                    height: 36px;
+                    @include pageBox;
+                    margin-right: 8px;
 
-                    .title {
-                        display: flex;
-                        align-items: center;
-                        color: $mainFont_1;
-                        font-size: 20px;
-                        margin-bottom: 50px;
-                        padding-left: 55px;
-                        position: relative;
-
-                        &::before {
-                            content: "";
-                            width: 33px;
-                            height: 26px;
-                            position: absolute;
-                            top: 50%;
-                            left: 0;
-                            transform: translateY(-50%);
-                        }
-
-                        .titleic {
-                            color: $mainFont_1;
-                            font-size: 37px;
-                            font-weight: lighter;
-                            margin-left: 20px;
-                            transition: all 0.3s;
-
-                            &.close {
-                                font-size: 23px;
-                            }
-                        }
-                    }
-
-                    table {
-                        width: 100%;
-                        height: auto;
-
-                        tr {
-                            border: 1px solid $Border_2;
-
-                            th,td {
-                                width: auto;
-                                height: auto;
-
-                                &:first-child {
-                                    width: 20%;
-                                }
-
-                                &:nth-of-type(2) {
-                                    width: 40%;
-                                }
-
-                                &:last-child {
-                                    width: 40%;
-
-                                    p {
-                                        border-right: none;
-                                    }
-                                }
-
-                                p {
-                                    color: $mainFont_1;
-                                    font-size: 18px;
-                                    border-right: 1px solid $Border_2;
-                                    text-align: center;
-                                    line-height: 40px;
-                                    white-space: nowrap;
-
-                                    span {
-                                        font-family: fansong;
-                                        padding-top: 10px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .update {
-                        color: $mainFont_1;
-                        font-size: 18px;
-                        margin-top: 40px;
-                        text-align: right;
-                        padding-right: 40px;
-
-                        span {
-
-                            &.time {
-                                margin-left: 15px;
-                            }
-                        }
+                    &:last-child {
+                        margin: 0;
                     }
                 }
             }

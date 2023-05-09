@@ -2,196 +2,167 @@
     width: 100%;
     height: auto;
     min-height: 565px;
-    padding-bottom: 42px;
+    padding: 180px 0 42px;
 
     .center {
         width: 1400px;
-        margin: 0 auto;
-        padding-top: 25px;
+        height: auto;
         display: flex;
         justify-content: space-between;
+        padding: 25px 0 40px;
+        margin: 0 auto;
         
         .nav {
-            background: $secondBG;
-            width: 390px;
+            width: 325px;
             height: auto;
-            border-radius: 5px;
+            background: $mainBG_1;
+            border-radius: 16px;
+            padding: 25px 10px;
+            margin-right: 15px;
+            flex-shrink: 0;
 
-            li {
+            &>li {
                 width: 100%;
-                height: auto;
+                padding-left: 60px;
 
                 &.title {
+                    height: 50px;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    padding-left: 26px;
-                    height: 60px;
-                    box-sizing: border-box;
+                    position: relative;
                     cursor: pointer;
-    
-                    &:hover,&:active,&.active {
-    
-                        .arrow_ic {
-                            transform: rotate(270deg);
-                        }
-                    }
-    
-                    p {
-                        display: flex;
-                        align-items: center;
-                        color: $choose_Word;
-                        font-size: 22px;
-                        font-weight: bold;
-    
-                        i {
-                            display: block;
-                            width: 20px;
-                            height: 20px;
-                            margin-right: 23px;
-    
-                            &.bulb {
-                                height: 24px;
-                            }
 
-                            &.aboutUs {
-                                height: 28px;
-                            }
+                    &.active {
+
+                        .arrow_ic {
+                            transform: rotate(90deg);
                         }
                     }
-    
+
+                    i:not(.arrow_ic) {
+                        width: 20px;
+                        height: 20px;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 18px;
+                    }
+
+                    p {
+                        color: $mainFont_1;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+
                     .arrow_ic {
-                        width: 8px;
+                        width: 9px;
                         height: 16px;
-                        transition: 0.3s all;
-                        transform: rotate(180deg);
-                        margin-right: 23px;
+                        margin-right: 20px;
                     }
                 }
 
                 &.box {
                     display: none;
+                    width: 100%;
+                    height: auto;
+                    padding: 0;
 
                     &.display {
                         display: block;
                     }
 
-                    ul {
+                    li {
                         width: 100%;
-                        height: auto;
-                        
-                        li {
-                            width: 100%;
-                            height: 45px;
-                            box-sizing: border-box;
-                            padding-left: 72px;
-                            cursor: pointer;
-                            display: flex;
-                            align-items: center;
-                            font-size: 18px;
-                            color: $choose_Word;
-    
-                            &:hover,&:active,&.active {
-                                background: $choose_BG;
-                                color: $choose_Active;
-                                font-weight: bold;
+                        height: 42px;
+                        @include innerLeftNav;
+                        font-size: 16px;
+                        margin-bottom: 5px;
 
-                                &::before {
-                                    display: none;
-                                }
-                            }
+                        &:last-child {
+                            margin: 0;
                         }
                     }
                 }
+                
             }
         }
         
         .helpWrap {
-            width: 980px;
+            width: 100%;
             height: auto;
-            background: $secondBG;
-            border-radius: 5px;
-            margin-bottom: 40px;
-            box-sizing: border-box;
-            padding: 44px 58px;
+            min-height: 500px;
+            background: $mainBG_1;
+            border-radius: 16px;
+            padding: 48px;
 
             div {
                 display: none;
+                width: 100%;
+                height: auto;
 
                 &.display {
                     display: block;
                 }
 
                 h2 {
-                    margin: 20px 0;
-                    color: $mainFont_1;
+                    color: $subFont_2;
                     font-size: 16px;
                     font-weight: bold;
+                    margin: 20px 0;
 
                     &:first-child {
-                        margin-top: 0;
                         font-size: 22px;
+                        margin-top: 0;
                     }
                 }
                 
                 h3 {
-                    color: $mainFont_1;
+                    color: $subFont_3;
                     font-size: 16px;
                     font-weight: bold;
                     margin: 10px 0;
                 }
 
                 p {
-                    margin-bottom: 10px;
-                    color: $mainFont_2;
+                    color: $mainFont_1;
                     font-size: 16px;
                     font-weight: bold;
                     line-height: 24px;
+                    margin-bottom: 10px;
 
                     &.remind {
-                        color: $help_remind;
+                        color: $subFont_1;
+                    }
+
+                    a {
+                        color: $remind_1;
                     }
                 }
 
                 button {
-                    width: 257px;
+                    width: 260px;
                     height: 42px;
                     @include mainBtn;
                 }
 
-                a {
-                    color: $link;
-                    text-decoration: none;
-                }
-
                 .img {
                     display: block;
+                    margin: 0 auto;
 
-                    &.online01 {
-                        width: 860px;
-                        height: 736px;
+                    &.helpImg_1 {
+                        width: 800px;
+                        height: 400px;
                     }
 
-                    &.online02 {
-                        width: 862px;
-                        height: 749px;
-                        margin-bottom: 20px;
+                    &.helpImg_2 {
+                        width: 950px;
+                        height: 773px;
                     }
 
-                    &.online03 {
-                        width: 862px;
-                        height: 957px;
-                    }
-
-                    &.online04 {
-                        width: 187px;
-                        height: 144px;
-                    }
-
-                    &.online05 {
-                        width: 275px;
-                        height: 379px;
-                        margin: 10px 0 20px 55px;
+                    &.helpImg_3 {
+                        width: 912px;
+                        height: 663px;
                     }
                 }
 
@@ -216,8 +187,8 @@
                         }
 
                         .smallTitle {
-                            color: $mainFont_2;
-                            font-size: 14px;
+                            color: $subFont_2;
+                            font-size: 16px;
                             font-weight: bold;
                             margin-bottom: 10px;
                         }
@@ -225,9 +196,9 @@
                         .innerBox {
                             width: 100%;
                             height: auto;
-                            background: $help_innerBox_BG;
+                            background: $subBG_1;
                             border-radius: 5px;
-                            border: dashed 3px $help_innerBox_Border;
+                            border: dashed 3px $mainBorder_1;
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
@@ -266,15 +237,14 @@
                     button {
 
                         &:last-child {
-                            @include fastBtn;
-                            background: $help_fastBtn_BG;
+                            @include secondBtn;
                             margin-top: 20px;
                         }
                     }
                 }
 
                 hr {
-                    border-color: $Border;
+                    border-color: $mainBorder_1;
                     margin-bottom: 60px;
                 }
             }

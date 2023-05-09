@@ -6,179 +6,65 @@ footer {
     .top {
         width: 100%;
         height: auto;
-        background: $footer_BG1;
+        margin-bottom: 100px;
 
-        .title {
-            width: 100%;
-            height: auto;
-            display: flex;
-            padding: 20px 0 0 15px;
-            box-sizing: border-box;
-
-            p {
-                color: $footer_Partner_Title;
-                font-size: 14px;
-                font-weight: bold;
-
-                &:nth-of-type(2) {
-                    margin: 0 10px;
-                }
-                &:nth-of-type(3) {
-                    color: $footer_Title;
-                }
-            }
-        }
-
-        .box {
-            width: 100%;
-            height: auto;
-            padding: 20px 0;
-            display: flex;
-            flex-wrap: wrap;
-
-            div {
-                flex-shrink: 0;
-                margin: 0 15px;
-            }
-        }
-
-        .payments {
-            width: 1350px;
+        .center {
+            width: 1400px;
             height: auto;
             margin: 0 auto;
-            box-sizing: border-box;
-            padding: 0 10px;
 
-            .box {
-                
-                div {
-                    height: 35px;
+            .textBox {
+                width: 100%;
+                height: auto;
+                text-align: center;
+                margin-bottom: 55px;
+
+                p {
+                    color: $mainFont_1;
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-shadow: 2px 3px 5px $mainShadow_1;
+
+                    &.sub {
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            ul {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                li {
+                    margin-right: 20px;
 
                     &.bank {
                         width: 114px;
-                    }
-                    &.imove {
-                        width: 110px;
-                    }
-                    &.iwallet {
-                        width: 112px;
-                    }
-                    &.sticpay {
-                        width: 111px;
-                    }
-                    &.tigerpay {
-                        width: 135px;
+                        height: 32px;
                     }
                     &.usdt {
                         width: 99px;
+                        height: 35px;
                     }
                     &.vega {
                         width: 163px;
+                        height: 30px;
                     }
-                }
-            }
-        }
-
-        .partner {
-            width: 1350px;
-            height: auto;
-            margin: 0 auto;
-            box-sizing: border-box;
-            padding: 0 10px;
-
-            .box {
-                
-                div {
-                    height: 46px;
-
-                    &.ab {
-                        width: 100px;
-                    }
-                    &.ag {
-                        width: 109px;
-                    }
-                    &.atux,
-                    &.ftp {
-                        width: 140px;
-                    }
-                    &.bng {
-                        width: 102px;
-                    }
-                    &.bp {
-                        width: 142px;
-                    }
-                    &.dg {
-                        width: 75px;
-                    }
-                    &.elk {
-                        width: 96px;
-                    }
-                    &.ely,
-                    &.evo {
-                        width: 137px;
-                    }
-                    &.evoplay,
-                    &.sp {
-                        width: 124px;
-                    }
-                    &.gh {
-                        width: 58px;
-                    }
-                    &.ifun,
-                    &.pg {
-                        width: 126px;
-                    }
-                    &.jili {
-                        width: 73px;
-                    }
-                    &.mg {
-                        width: 135px;
-                    }
-                    &.net {
-                        width: 92px;
-                    }
-                    &.nolimit {
-                        width: 121px;
-                    }
-                    &.og {
-                        width: 52px;
-                    }
-                    &.pls {
-                        width: 173px;
-                    }
-                    &.png {
-                        width: 115px;
-                    }
-                    &.pp {
-                        width: 95px;
-                    }
-                    &.qs {
+                    &.sticpay {
                         width: 111px;
+                        height: 24px;
                     }
-                    &.redrake {
-                        width: 77px;
+                    &.iwallet {
+                        width: 112px;
+                        height: 32px;
                     }
-                    &.redtiger,
-                    &.sa {
-                        width: 103px;
-                    }
-                    &.relax {
-                        width: 101px;
-                    }
-                    &.rsg {
-                        width: 70px;
-                    }
-                    &.sport {
-                        width: 97px;
-                    }
-                    &.tpg {
-                        width: 109px;
-                    }
-                    &.wm {
-                        width: 40px;
-                    }
-                    &.ygg {
-                        width: 133px;
+                    &.tigerpay {
+                        width: 135px;
+                        height: 34px;
                     }
                 }
             }
@@ -189,198 +75,301 @@ footer {
     .footerList {
         width: 100%;
         height: auto;
-        background: $footer_BG2;
-        padding: 40px 0;
+        margin-bottom: 120px;
 
         .center {
-            width: 1350px;
+            width: 1400px;
             height: auto;
             margin: 0 auto;
 
-            ul {
+            .textBox {
                 width: 100%;
                 height: auto;
-                display: flex;
+                text-align: center;
+                margin-bottom: 55px;
+
+                p {
+                    color: $mainFont_1;
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-shadow: 2px 3px 5px $mainShadow_1;
+
+                    &.sub {
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            ul {
+                width: 1140px;
+                height: auto;
+                display: grid;
+                grid-template-columns: repeat(8,auto);
+                gap: 20px 0;
+                align-items: center;
                 justify-content: space-between;
+                margin: 0 auto;
 
                 li {
-                    width: 20%;
-                    height: auto;
-                    padding: 0 10px;
-                    box-sizing: border-box;
+                    margin: 0 auto;
 
-                    .title {
-                        color: $footer_Title;
-                        font-size: 21px;
-                        font-weight: bold;
-                        margin-bottom: 30px;
-                        text-decoration: underline;
+                    &.ag {
+                        width: 109px;
+                        height: 36px;
+                    }
+    
+                    &.sa {
+                        width: 103px;
+                        height: 37px;
+                    }
+    
+                    &.dg {
+                        width: 75px;
+                        height: 37px;
+                    }
+    
+                    &.tpg {
+                        width: 109px;
+                        height: 36px;
+                    }
+    
+                    &.og {
+                        width: 52px;
+                        height: 45px;
+                    }
+    
+                    &.sp {
+                        width: 124px;
+                        height: 37px;
+                    }
+    
+                    &.mg {
+                        width: 135px;
+                        height: 33px;
+                    }
+    
+                    &.pp {
+                        width: 95px;
+                        height: 43px;
+                    }
+    
+                    &.gh {
+                        width: 58px;
+                        height: 41px;
+                    }
+    
+                    &.elk {
+                        width: 96px;
+                        height: 38px;
                     }
 
-                    button {
+                    &.ftp {
+                        width: 140px;
+                        height: 32px;
+                    }
+
+                    &.pg {
+                        width: 126px;
+                        height: 31px;
+                    }
+
+                    &.bng {
+                        width: 102px;
+                        height: 30px;
+                    }
+
+                    &.ab {
+                        width: 100px;
+                        height: 33px;
+                    }
+
+                    &.pls {
+                        width: 173px;
+                        height: 27px;
+                    }
+
+                    &.rsg {
+                        width: 70px;
+                        height: 40px;
+                    }
+
+                    &.bp {
+                        width: 142px;
+                        height: 29px;
+                    }
+
+                    &.redtiger {
+                        width: 103px;
+                        height: 43px;
+                    }
+
+                    &.ifun {
+                        width: 126px;
+                        height: 37px;
+                    }
+
+                    &.redrake {
+                        width: 77px;
+                        height: 48px;
+                    }
+
+                    &.ely {
+                        width: 137px;
+                        height: 30px;
+                    }
+
+                    &.atux {
+                        width: 140px;
+                        height: 34px;
+                    }
+
+                    &.evoplay {
+                        width: 124px;
+                        height: 20px;
+                    }
+
+                    &.sport {
+                        width: 97px;
+                        height: 36px;
+                    }
+
+                    &.png {
+                        width: 115px;
+                        height: 32px;
+                    }
+
+                    &.relax {
+                        width: 101px;
+                        height: 31px;
+                    }
+
+                    &.wm {
+                        width: 40px;
+                        height: 41px;
+                    }
+
+                    &.ygg {
+                        width: 133px;
+                        height: 33px;
+                    }
+
+                    &.net {
+                        width: 92px;
+                        height: 46px;
+                    }
+
+                    &.jili {
+                        width: 73px;
+                        height: 29px;
+                    }
+
+                    &.nolimit {
+                        width: 121px;
+                        height: 34px;
+                    }
+
+                    &.evo {
+                        width: 137px;
+                        height: 27px;
+                    }
+                }
+            }
+        }
+    }
+
+    //downList
+    .downList {
+        width: 100%;
+        height: auto;
+        padding-bottom: 50px;
+
+        ul {
+            width: 1050px;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+
+            li {
+                width: auto;
+                height: auto;
+
+                .title {
+                    color: $mainFont_1;
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-shadow: 2px 3px 5px $mainShadow_1;
+                    margin-bottom: 35px;
+                }
+
+                .listBox {
+                    width: 100%;
+                    height: auto;
+
+                    a {
+                        display: block;
                         width: 100%;
                         height: auto;
-                        margin-bottom: 20px;
-                        background: none;
-                        position: relative;
-                        color: $footer_Title;
-                        font-size: 16px;
+                        color: $mainFont_1;
+                        font-size: 14px;
                         font-weight: bold;
-                        text-align: left;
-
-                        &:last-child {
-                            margin: 0;
-                        }
-
-                        &.serviceBtn {
-                            width: 240px;
-                            height: 54px;
-                            @include footerBtn;
-                            border-radius: 30px;
-                        }
-                        &.iframe-box {
-                            width: 240px;
-                            height: 54px;
-                            @include footerBtn;
-                            display: flex;
-                            background: $footer_iframeBtn;
-                            border-radius: 30px;
-
-                            img {
-                                width: 121px;
-                                height: 48px;
-                                margin: auto;
-                            }
-                            
-                            &:hover,&:active,&.active {
-                                background: $footer_iframeBtn;
-                            }
-                        }
-                        &.twitter {
-                            width: 48px;
-                            height: 48px;
-
-                            &:hover,&:active,&.active {
-
-                                &::before {
-                                    display: none;
-                                }
-                            }
-                        }
+                        text-decoration: none;
+                        position: relative;
+                        margin-bottom: 30px;
 
                         &::before {
-                            opacity: 0;
                             content: "";
                             position: absolute;
-                            left: -25px;
+                            width: 0;
+                            height: 0;
                             top: 50%;
                             transform: translateY(-50%);
-                            width: 18px;
-                            height: 18px;
-                            background: $footer_Hover;
-                            clip-path: polygon(50% 0,86% 50%,50% 100%,14% 50%);
+                            left: -20px;
+                            border-style: solid;
+                            border-width: 8px 0 8px 12px;
+                            border-color: transparent $mainFont_1;
+                            animation: footer_hoverArrow 2s linear 0s infinite;
+                            opacity: 0;
                             transition: 0.3s all;
-                            pointer-events: none;
                         }
 
                         &:hover,&:active,&.active {
-                            color: $footer_Hover;
 
                             &::before {
                                 opacity: 1;
+                            }
+                        }
+
+                        @keyframes footer_hoverArrow {
+                            0% {
+                                transform: translateY(-50%) rotateX(0deg);
+                            }
+
+                            100% {
+                                transform: translateY(-50%) rotateX(360deg);
                             }
                         }
                     }
                 }
             }
         }
-    }
-}
-
-.agentP {
-    width: 100%;
-    height: auto;
-    background: $gameWrapBG;
-    padding-top: 105px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    
-    .title {
-        display: inline;
-        color: $mainFont_1;
-        font-size: 36px;
-        font-weight: bolder;
-        text-align: center;
-        margin: 38px 0 ;
-    }
-
-    .subTitle {
-        display: inline;
-        font-size: 16px;
-        font-weight: bolder;
-        color: $mainFont_3;
-        position: relative;
         
+        &.agentfooter {
 
-        &::before {
-            content: " ";
-            background: $Border;
-            width: 40%;
-            height: 1px;
-            position: absolute;
-            top: 8px;
-            left: 403px;
+            ul {
+
+                li {
+
+                    .listBox {
+
+                        a {
+                            color: $mainFont_2;
+                        }
+                    }
+                }
+            }
         }
 
-        &::after {
-            content: " ";
-            background: $Border;
-            width: 40%;
-            height: 1px;
-            position: absolute;
-            top: 8px;
-            right: 403px;
-        }
-    }
-
-    button {
-        width: 349px;
-        height: 64px;
-        @include mainBtn;
-        border-radius: 34px;
-        font-size: 25px;
-        font-weight: bolder;
-        margin: 73px auto;
-    }
-
-    .bottom {
-        width: 100%;
-        height: 100px;
-        background: $secondBG;
-        padding-top: 37px;
-        box-sizing: border-box;
-
-        .copyright {
-            color: $mainFont_1;
-            text-align: center;
-        }
-    }
-}
-.agOther {
-    .bottom {
-        width: 100%;
-        height: 100px;
-        background: $secondBG;
-        padding: 40px;
-        box-sizing: border-box;
-
-        .copyright {
-            color: $mainFont_1;
-            text-align: center;
-        }
     }
 }
