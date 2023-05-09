@@ -1,0 +1,76 @@
+.ruleWrap {
+    @include mainStyle;
+
+    .textBox {
+        width: 1140px;
+        height: auto;
+        transition: 0.3s all;
+        margin: 0 auto;
+
+        p {
+            color: $mainFont_1;
+            font-size: 1.125rem;
+            font-weight: bold;
+            line-height: 1.75rem;
+            margin: 10px 0;
+    
+            &.title {
+                color: $titleColor_1;
+                font-size: 2.25rem;
+                font-weight: bold;
+                text-align: center;
+                line-height: 2.875rem;
+                margin: 30px 0;
+            }
+    
+            &.smallTitle {
+                color: $titleColor_1;
+                font-size: 1rem;
+                font-weight: bold;
+                margin: 20px 0;
+            }
+
+            &.second {
+                padding-left: 30px;
+            }
+    
+            span {
+                color: $subFont_2;
+                font-weight: bold;
+            }
+
+            a {
+                display: inline;
+                color: $linkColor_1;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1600px) {
+        
+        .textBox {
+            width: 840px;
+        }
+    }
+
+    @media only screen and (max-width: 1260px) {
+        
+        .textBox {
+            width: 570px;
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        
+        .textBox {
+            width: 385px;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        
+        .textBox {
+            width: 80%;
+        }
+    }
+}

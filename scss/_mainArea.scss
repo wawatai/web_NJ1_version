@@ -1,0 +1,252 @@
+.mainArea {
+    @include mainStyle;
+
+    //topList
+    .topList {
+        width: 100%;
+        height: auto;
+        margin: 24px 0;
+
+        &>ul {
+            width: auto;
+            height: auto;
+            display: flex;
+            margin-bottom: 15px;
+
+            li {
+                width: auto;
+                height: 34px;
+                @include mainBtn_2;
+                padding: 0 0.875rem;
+                margin-right: 5px;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+
+        .inputBox {
+            width: 100%;
+            height: 0;
+            transition: 0.3s opacity;
+            opacity: 0;
+            overflow: hidden;
+
+            &.display {
+                height: 42px;
+                opacity: 1;
+            }
+
+            input {
+                width: 100%;
+                height: 100%;
+                @include inputStyle_1;
+            }
+        }
+
+        .btnBox {
+            width: 100%;
+            height: 0;
+            transition: 0.3s opacity;
+            opacity: 0;
+            overflow: hidden;
+
+            &.display {
+                height: auto;
+                opacity: 1;
+            }
+
+            ul {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+
+                li {
+                    width: auto;
+                    height: 34px;
+                    @include mainBtn_2;
+                    margin: 0 5px 5px 0;
+                    padding: 0 1.25rem;
+                }
+            }
+        }
+    }
+
+    //gameBox
+    .gameBox {
+        width: 100%;
+        height: auto;
+
+        ul {
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+
+            li {
+                width: auto;
+                height: auto;
+                border: 1px solid $mainBorder_1;
+                border-radius: 5px;
+                overflow: hidden;
+                cursor: pointer;
+
+                &:hover,&:active,&.active {
+
+                    a {
+
+                        .hLayer {
+                            opacity: 1;
+                        }
+                        
+                        p {
+                            text-decoration-color: $subFont_2;
+                        }
+                    }
+                }
+
+                a {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 0;
+                    position: relative;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        object-fit: contain;
+                    }
+
+                    .hLayer {
+                        width: 100%;
+                        height: 100%;
+                        background: $mainArea_gameBox_filterBG;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transition: 0.3s all;
+                        opacity: 0;
+                        z-index: 10;
+
+                        button {
+                            width: 45%;
+                            height: 35px;
+                            @include mainBtn_1;
+                            font-size: 1rem;
+                            white-space: nowrap;
+                        }
+                    }
+                    
+    
+                    p {
+                        width: 100%;
+                        color: $mainArea_gameBox_Color;
+                        font-size: 0.875rem;
+                        font-weight: bold;
+                        text-align: center;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        transition: 0.3s all;
+                        margin: 8px 0;
+                        padding: 0 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    //bottom
+    .bottom {
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+
+        p {
+            color: $mainFont_1;
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 1.75rem;
+            margin: 5px 0;
+
+            &.title {
+                color: $titleColor_1;
+                font-size: 2.25rem;
+                font-weight: bold;
+                text-align: center;
+                line-height: 2.875rem;
+                margin: 0 0 30px;
+            }
+
+            &.smallTitle {
+                color: $titleColor_1;
+                font-size: 1.75rem;
+                font-weight: bold;
+                margin: 30px 0;
+            }
+
+            &.miniTitle {
+                color: $titleColor_1;
+                font-size: 1rem;
+                font-weight: bold;
+                margin: 30px 0;
+            }
+
+            &.mar {
+                margin-bottom: 30px;
+            }
+
+            span {
+                color: $subFont_3;
+                font-weight: bold;
+            }
+
+            a {
+                display: inline;
+                color: $linkColor_1;
+                text-decoration: underline;
+                transition: 0.3s all;
+
+                &:hover,&:active,&.active {
+                    color: $subFont_1;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        
+        .gameBox {
+
+            ul {
+                grid-template-columns: repeat(4,1fr);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 850px) {
+        
+        .gameBox {
+
+            ul {
+                grid-template-columns: repeat(3,1fr);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 650px) {
+        
+        .gameBox {
+
+            ul {
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+    }
+}
