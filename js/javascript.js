@@ -1,32 +1,82 @@
 //topGameList 滑入彈出效果
 $(function() {
-    $(".topGameList").mouseleave(function(){
-        $(".topGameList").removeClass("display");
+    $("header .gameNav li,.topGameList").hover(function(){
+        $(".topGameList")
+        .addClass("display");
+
+        $("header")
+        .addClass("linear");
+
+        if($(this).hasClass("sportBtn"))
+        {
+            $('.topGameList,.topGameList .sport')
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
+        else if($(this).hasClass("liveBtn"))
+        {
+            $('.topGameList,.topGameList .live')
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
+        else if($(this).hasClass("slotBtn"))
+        {
+            $('.topGameList,.topGameList .slot')
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
+        else if($(this).hasClass("fishBtn"))
+        {
+            $('.topGameList,.topGameList .fish')
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
+        else if($(this).hasClass("boardBtn"))
+        {
+            $('.topGameList,.topGameList .board')
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
+        else if($(this).hasClass("menu") || $(this).hasClass("event") || $(this).hasClass("vip"))
+        {
+            $(".topGameList")
+            .removeClass("display");
+
+            $("header")
+            .removeClass("linear");
+        }
     })
 
-    $(".gameNav li").hover(function(){
-        var n = $(this).index();
-
-        $(".topGameList,.topGameList ul:eq("+ n +")")
-        .addClass("display")
-        .siblings().removeClass("display");
-    })
-    $(".gameNav li:eq(6),.gameNav li:eq(7)").hover(function(){
+    $("header .top").hover(function(){
         $(".topGameList")
         .removeClass("display");
+
+        $("header")
+        .removeClass("linear");
     })
 
-    $(".gameNav li.liveBtn,.gameNav li.slotBtn").hover(function(){
-        $(".topGameList .prev,.topGameList .next")
-        .addClass("display");
-        $(".topGameList .container")
-        .addClass("scroll");
-    })
-    $(".gameNav li.hotBtn,.gameNav li.sportBtn,.gameNav li.fishBtn,.gameNav li.boardBtn").hover(function(){
-        $(".topGameList .prev,.topGameList .next")
+    $(".topGameList").mouseleave(function(){
+        $(".topGameList")
         .removeClass("display");
-        $(".topGameList .container")
-        .removeClass("scroll");
+
+        $("header")
+        .removeClass("linear");
+    })
+})
+
+//header滑動時改變背景
+$(function(){
+    $(window).scroll(function(){
+        if($(window).scrollTop() > 50)
+        {
+            $("header")
+            .addClass("scroll");
+        }
+        else
+        {
+            $("header")
+            .removeClass("scroll");
+        }
     })
 })
 
@@ -38,79 +88,371 @@ $(document).on('ready', function() {
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 3500,
-		arrows: true,
+		arrows: false,
 	})
 })
 
-//live下拉選單寬度+點擊滑動
+//underList點擊滑動
 $(function(){
-    var live = $('.listWrap .live li');
-    var livel = live.length;
-    var liwp = $('.topGameList .live');
-    $(liwp).css("width",""+195 * livel+"");
+    var slotL = $('.listWrap .slot li').length;
+    var slWP = $('.topGameList .slot ol>div');
 
     var n = 0;
-    var nt = $('.listWrap .next');
-    var pv = $('.listWrap .prev');
-    $(nt).click(function(){
-        n ++;
-        $(liwp).css("transform","translateX("+(-195 * n)+"px)");
+    var pv = $(".topGameList .slot .prev");
+    var nt = $(".topGameList .slot .next");
 
-        if(n == 3){
-            n --;
-        }
-    })
     $(pv).click(function(){
         n --;
-        $(liwp).css("transform","translateX("+(-195 * n)+"px)");
+        $(slWP).css("transform","translateX("+(-208 * n)+"px)");
+
+        $(nt)
+        .addClass("active");
 
         if(n == -1){
-            $(liwp).css("transform","translateX(0px)");
+            $(slWP).css("transform","translateX(0px)");
             n ++;
+
+            $(pv)
+            .removeClass("active");
+        }
+    })
+    $(nt).click(function(){
+        n ++;
+        $(slWP).css("transform","translateX("+(-208 * n)+"px)");
+
+        $(pv)
+        .addClass("active");
+
+        if(n == slotL - 4){
+            n --;
+
+            $(nt)
+            .removeClass("active");
         }
     })
 })
-//slot下拉選單寬度+點擊滑動
 $(function(){
-    var slot = $('.listWrap .slot li');
-    var slotl = slot.length;
-    var slwp = $('.topGameList .slot');
-    $(slwp).css("width",""+195 * slotl+"");
+    var boardL = $('.listWrap .board li').length;
+    var bdWP = $('.topGameList .board ol>div');
 
     var n = 0;
-    var nt = $('.listWrap .next');
-    var pv = $('.listWrap .prev');
-    $(nt).click(function(){
-        n ++;
-        $(slwp).css("transform","translateX("+(-195 * n)+"px)");
+    var pv = $(".topGameList .board .prev");
+    var nt = $(".topGameList .board .next");
 
-        if(n == 16){
-            n --;
-        }
-    })
     $(pv).click(function(){
         n --;
-        $(slwp).css("transform","translateX("+(-195 * n)+"px)");
+        $(bdWP).css("transform","translateX("+(-208 * n)+"px)");
+
+        $(nt)
+        .addClass("active");
 
         if(n == -1){
-            $(slwp).css("transform","translateX(0px)");
+            $(bdWP).css("transform","translateX(0px)");
             n ++;
+
+            $(pv)
+            .removeClass("active");
+        }
+    })
+    $(nt).click(function(){
+        n ++;
+        $(bdWP).css("transform","translateX("+(-208 * n)+"px)");
+
+        $(pv)
+        .addClass("active");
+
+        if(n == boardL - 4){
+            n --;
+
+            $(nt)
+            .removeClass("active");
         }
     })
 })
 
+//header loginBtn click
+$(function(){
+    $('.loginBtn').click(function(){
+        $('header .user')
+        .toggleClass('display');
+
+        $(".unlogin")
+        .removeClass("unlogin");
+
+        $(".filter,.jumpWindow.news")
+        .addClass("display");
+
+        $("header .user.alLogin .deposit a")
+        .attr("href","./html/deposit.html");
+        $("header .user.alLogin .transfer a")
+        .attr("href","./html/transfer.html");
+        $("header .user.alLogin .withdrawal a")
+        .attr("href","./html/withdrawal.html");
+        $("header .user.alLogin .member a")
+        .attr("href","./html/member.html");
+        $("header .user.alLogin .mail a")
+        .attr("href","./html/mail.html");
+
+        $(".gameNav .sportBtn")
+        .find("a").attr("href","./html/sportPage.html");
+        $(".gameNav .liveBtn")
+        .find("a").attr("href","./html/livePage.html");
+        $(".gameNav .slotBtn")
+        .find("a").attr("href","./html/slotPage.html");
+        $(".gameNav .fishBtn")
+        .find("a").attr("href","./html/fishPage.html");
+        $(".gameNav .boardBtn")
+        .find("a").attr("href","./html/boardPage.html");
+        $(".gameNav .event")
+        .find("a").attr("href","./html/event.html");
+        $(".gameNav .vip")
+        .find("a").attr("href","./html/vip.html");
+
+        $(".topGameList li")
+        .addClass("openBet");
+
+        $(".typeList li.sport a")
+        .attr("href","./html/sportPage.html");
+        $(".typeList li.live a")
+        .attr("href","./html/livePage.html");
+        $(".typeList li.slot a")
+        .attr("href","./html/slotPage.html");
+        $(".typeList li.fish a")
+        .attr("href","./html/fishPage.html");
+        $(".typeList li.board a")
+        .attr("href","./html/boardPage.html");
+
+        $("footer .downList .news a")
+        .addClass("openNews");
+        $("footer .downList .vip a")
+        .attr("href","./html/vip.html");
+        $("footer .downList .help a")
+        .attr("href","./html/help.html");
+    })
+})
+
+//.transferInfo display
+$(function(){
+    $('.moneyTotal').click(function(){
+        $('.transferInfo').toggleClass('display');
+    })
+})
+
+//mainWrap
+$(function(){
+    var total = $(".mainWrap .typeList li").length;
+    var tar = total / 16;
+
+    $(".mainWrap .typeList li").each(function(){
+        
+        if($(this).index() > 15)
+        {
+            $(this)
+            .removeClass("display");
+        }
+    })
+
+    if(tar > 0)
+    {
+
+        for(var i = 1; i <= tar; i++)
+        {
+            var page = $(".mainWrap .pageBox li").length;
+
+            $(".mainWrap .pageBox ul")
+            .append("<li><p>"+ (page + 1) +"</p></li>");
+        }
+    }
+
+    $(".mainWrap .pageBox li").on("click",function(){
+        $(this)
+        .addClass("active")
+        .siblings().removeClass("active");
+
+        $(".mainWrap .typeList li")
+        .removeClass("display");
+
+        var n = $(this).index();
+
+        $(".mainWrap .typeList li").each(function(){
+                
+            if($(this).index() >= ((n + 1) * 16 - 16) && $(this).index() < ((n + 1) * 16))
+            {
+                $(this)
+                .addClass("display");
+            }
+        })
+
+        $('html,body').animate({
+            scrollTop: $(".mainWrap .quickBox").next().offset().top - 200
+        }, 500);
+    })
+
+    $(".mainWrap .quickBox li").on("click",function(){
+        $(this)
+        .addClass("active")
+        .siblings().removeClass("active");
+
+        var n = $(this).index();
+
+        $(".mainWrap .typeList li,.mainWrap .pageBox")
+        .removeClass("display");
+
+        $('html,body').animate({
+            scrollTop: $(".mainWrap .quickBox").next().offset().top - 200
+        }, 500);
+
+        if(n == 0)
+        {
+            $(".mainWrap .typeList li").each(function(){
+                
+                if($(this).index() >= ((n + 1) * 16 - 16) && $(this).index() < ((n + 1) * 16))
+                {
+                    $(this)
+                    .addClass("display");
+                }
+            })
+
+            $(".mainWrap .pageBox")
+            .addClass("display")
+            .find("li").first()
+            .addClass("active")
+            .siblings().removeClass("active");
+        }
+        else if(n == 1)
+        {
+            $(".mainWrap .typeList li.sport")
+            .addClass("display");
+        }
+        else if(n == 2)
+        {
+            $(".mainWrap .typeList li.live")
+            .addClass("display");
+        }
+        else if(n == 3)
+        {
+            $(".mainWrap .typeList li.slot")
+            .addClass("display");
+        }
+        else if(n == 4)
+        {
+            $(".mainWrap .typeList li.fish")
+            .addClass("display");
+        }
+        else if(n == 5)
+        {
+            $(".mainWrap .typeList li.board")
+            .addClass("display");
+        }
+    })
+})
+
+//gameWrap小遊戲格hover切換左大圖
+$(function(){
+    $(".livePage .btnBox li").hover(function(){
+        var n = $(this).index() + 1;
+
+        $(".livePage .mainImg")
+        .attr("src","../images/partner/live/liveBG_"+ n +".png");
+    })
+    $(".fishPage .btnBox li").hover(function(){
+        var n = $(this).index() + 1;
+
+        $(".fishPage .mainImg")
+        .attr("src","../images/partner/fish/fishBG_"+ n +".png");
+    })
+    $(".boardPage .btnBox li").hover(function(){
+        var n = $(this).index() + 1;
+
+        $(".boardPage .mainImg")
+        .attr("src","../images/partner/board/boardBG_"+ n +".png");
+    })
+    $(".slotPage .btnBox li").hover(function(){
+        var n = $(this).index() + 1;
+
+        $(".slotPage .mainImg")
+        .attr("src","../images/partner/slot/slotBG_"+ n +".png");
+    })
+})
+
+//eventWrap 切換
+// $(function(){
+//     $('.eventBox .btnBox button').click(function(){
+//         $('.eventList').removeClass('display');
+//         $('.eventDetail').addClass('display');
+//     })
+
+//     $('.eventDetail .back').click(function(){
+//         $('.eventList').addClass('display');
+//         $('.eventDetail').removeClass('display');
+//     })
+// })
+
+//slotPage
+$(function(){
+    $('.slotBody .nav li').click(function(){
+        $(this)
+        .addClass('active')
+        .siblings().removeClass('active');
+    })
+
+    $('.pfName .all').click(function(){
+        $('.platforms')
+        .removeClass('display');
+        $(this)
+        .closest('.platforms').addClass('display')
+        .find(".pfName").addClass("active")
+        .next().addClass("active");
+    })
+    $('.pfName .back').click(function(){
+        $('.platforms')
+        .addClass('display');
+        $('.pfName,.gameList')
+        .removeClass('active');
+    })
+
+    $(".slotBody .love_ic").on("click",function(){
+        $(this)
+        .toggleClass("active");
+    })
+})
+
+//.memberWrap 切換
+$(function(){
+    $('.memberWrap .tabs li').click(function(){
+        $(this)
+        .addClass("active")
+        .siblings().removeClass("active");
+
+        var n = $(this).index();
+
+        $(".memberWrap .bottom>div:eq("+ n +")")
+        .addClass("display")
+        .siblings().removeClass("display");
+    })
+})
+
+//vipWrap切換
+$(function(){
+    $('.levelEnjoy .more,.vipWrap .back').click(function(){
+        $(".vipWrap")
+        .toggleClass("display");
+    })
+})
 //.vipWrap .detailCardBox內選單滑動
 $(function(){
     var vipCard = $('.detailCardBox ul');
+    var cardL = $('.detailCardBox ul li').length;
 
     var n = 0;
     var nt = $('.detailCardBox .next');
     var pv = $('.detailCardBox .prev');
+
     $(nt).click(function(){
         n ++;
         $(vipCard).css("transform","translateX("+(-300 * n)+"px)");
 
-        if(n == 2){
+        if(n == cardL - 1){
             n --;
         }
     })
@@ -125,597 +467,355 @@ $(function(){
     })
 })
 
-//header loginBtn click
+//eventApply 切換
 $(function(){
-    $('.loginBtn').click(function(){
-        $('header .user')
-        .toggleClass('display');
-        
-        $('header .sportBtn')
-        .attr("onclick","window.location.href='./html/sportPage.html'");
-        $('header .liveBtn')
-        .attr("onclick","window.location.href='./html/livePage.html'");
-        $('header .slotBtn,.topGameList .slot li,.typeList .slot')
-        .attr("onclick","window.location.href='./html/slotPage.html'");
-        $('header .fishBtn,.topGameList .fish li,.typeList .fish')
-        .attr("onclick","window.location.href='./html/fishPage.html'");
-        $('header .boardBtn,.topGameList .board li,.typeList .board')
-        .attr("onclick","window.location.href='./html/boardPage.html'");
-        $('header .event')
-        .attr("onclick","window.location.href='./html/event.html'");
-        $('header .vip,footer .vip button')
-        .attr("onclick","window.location.href='./html/vip.html'");
-
-        $('.topGameList .sport li,.typeList .sport')
-        .attr("onclick","openSportGame()");
-        $('.topGameList .live li,.typeList .live')
-        .attr("onclick","openLiveGame()");
-        $('.topGameList .lottery li,.typeList .lottery')
-        .attr("onclick","openLotteryGame()");
-
-        $("footer .news button")
-        .attr("onclick","openNews()");
-
-        $(".sideBar .inviteBtn")
-        .addClass("display");
-
-        $(".quickBox .love")
-        .addClass("display");
-    })
-})
-
-//.transferInfo display
-$(function(){
-    $('.moneyTotal').click(function(){
-        $('.transferInfo').toggleClass('display');
-    })
-})
-
-//mainWrap
-$(function(){
-    $(".quickBox .love").click(function(){
-        $(".typeList")
-        .toggleClass("display")
-    })
-    $(".loveGame .love").click(function(){
+    $(".eventApplyWrap .tabs li").click(function(){
         $(this)
-        .toggleClass("active");
-    })
+        .addClass("active")
+        .siblings().removeClass("active");
 
-    $(".quickBox .sport").click(function(){
-        $(".typeList li")
-        .removeClass("display");
-        
-        $(".typeList .forSport")
+        var n = $(this).index();
+
+        $(".eventApplyWrap>div:eq("+ n +")")
         .addClass("display")
+        .siblings().removeClass("display");
+    })
+})
+
+//mailWrap 切換
+$(function(){
+    $('.mailWrap .top button').click(function(){
+        $(this)
+        .addClass('active')
+        .siblings().removeClass("active");
+
+        if($(this).index() == 0)
+        {
+            $('.mailWrap .bottom.active')
+            .addClass('display')
+            .siblings().removeClass("display");
+        }
+        else
+        {
+            $('.mailWrap .bottom.ann')
+            .addClass('display')
+            .siblings().removeClass("display");
+        }
     })
 
-    $(".quickBox .live").click(function(){
-        $(".typeList li")
-        .removeClass("display");
-        
-        $(".typeList .forLive")
+    $('.mailWrap .active .tabs li').click(function(){
+        $(this)
+        .addClass('active')
+        .siblings().removeClass('active');
+
+        var n = $(this).index();
+
+        $(".mailWrap .bottom.active .list>ul:eq("+ n +")")
         .addClass("display")
+        .siblings("ul").removeClass("display");
     })
+    $('.mailWrap .ann .tabs li').click(function(){
+        $(this)
+        .addClass('active')
+        .siblings().removeClass('active');
 
-    $(".quickBox .slot").click(function(){
-        $(".typeList li")
-        .removeClass("display");
-        
-        $(".typeList .forSlot")
+        var n = $(this).index();
+
+        $(".mailWrap .bottom.ann .list>ul:eq("+ n +")")
         .addClass("display")
+        .siblings("ul").removeClass("display");
     })
 
-    $(".quickBox .fish").click(function(){
-        $(".typeList li")
-        .removeClass("display");
-        
-        $(".typeList .forFish")
-        .addClass("display")
+    $('.mailWrap .btnBox .edit,.mailWrap .btnBox .finish').click(function(){
+        $('.mailWrap .btnBox')
+        .toggleClass('display');
+
+        $(".mailWrap .list li")
+        .toggleClass("editing");
     })
 
-    $(".quickBox .board").click(function(){
-        $(".typeList li")
-        .removeClass("display");
-        
-        $(".typeList .forBoard")
-        .addClass("display")
-    })
-})
-
-//filter open + close
-$(function(){
-    $('.jumpWindow .close_ic,.jumpWindow .close').click(function(){
-        $('.filter')
-        .removeClass('display');
-    })
-    $(".jumpWindow.betWindow .enterGame button").click(function(){
-        $('.filter')
-        .removeClass('display');
+    $('.mailWrap.outMode .list li,.mailWrap.innerMode .title').click(function(){
+        $('.mailWrap')
+        .toggleClass('display');
     })
 
-    $(".login .forget").click(function(){
-        $('.jumpWindow')
-        .removeClass('display');
-        $('.filter,.forgetPassword')
-        .addClass('display');
-    })
-
-    $('.loginBtn').click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.news').addClass('display');
-    })
-
-    $('.changePassword button').click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.passwordWindow').addClass('display');
-    })
-
-    $('.changePhone').click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.phoneWindow').addClass('display');
-    })
-
-    $(".waterBox .check").click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.listWindow').addClass('display');
-    })
-
-    $('.eventBox .check,.eventBoxAl .check').click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.checkEvent').addClass('display');
-    })
-    $('.eventBox .apply').click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.plsGo').addClass('display');
-    })
-
-    $('.sportPage .btnBox li').click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.betWindow.sportGame').addClass('display');
-    })
-    $('.livePage .btnBox li').click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.betWindow.liveGame').addClass('display');
-    })
-    $('.lotteryPage .btnBox li').click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.betWindow.lotteryGame').addClass('display');
-    })
-
-    $(".pointWrap .open").click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.pointWindow').addClass('display');
-    })
-
-    $(".registerWrap .send").click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.plsGo').addClass('display');
-    })
-    $(".registerWrap .checkBox span").click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.ruleWindow').addClass('display');
-    })
-    $(".agentSignup").click(function(){
-        $('.jumpWindow').removeClass('display');
-        $('.filter,.agRegist').addClass('display');
-    })
-    //同意條款checkbox
-    $(".agRegist .btnBox .readBtn").click(function(){
-        $(this).toggleClass('active');
-    })
-    $(".agRegist .btnBox .openAGterms").click(function(){
-        $('.agTerms').addClass('display');
-        $(".agRegist").addClass("darkness");
-    })
-    $(".closeTerms,.close_ic.back").click(function(){
-        $(".filter").addClass("display");
-        $('.agTerms').removeClass('display');
-        $(".agRegist").removeClass("darkness");
-    })
-})
-
-function unlogin(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.plsGo').addClass('display');
-}
-function openSportGame(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.betWindow.sportGame').addClass('display');
-}
-function openLiveGame(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.betWindow.liveGame').addClass('display');
-}
-function openSlotGame(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.betWindow.slotGame').addClass('display');
-}
-function openLotteryGame(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.betWindow.lotteryGame').addClass('display');
-}
-function openFishGame(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.betWindow.fishGame').addClass('display');
-}
-function openBoardGame(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.betWindow.boardGame').addClass('display');
-}
-function openNews(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.news').addClass('display');
-}
-function loading(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.loading').addClass('display');
-
-    setTimeout(function(){
-        $(".filter")
-        .removeClass("display");
-    },2000);
-}
-function openAGterms(){
-    $('.jumpWindow').removeClass('display');
-    $('.filter,.agTerms').addClass('display');
-}
-
-//gameWrap小遊戲格hover切換左大圖
-$(function(){
-    $(".livePage .btnBox li").hover(function(){
-        var n = $(this).index() + 1;
-
-        $(".livePage .mainImg")
-        .attr("src","../images/partner/live/liveBG_"+ n +".png");
-    })
-})
-
-//jumpWindow .new .content
-$(function(){
-    $('.news .nav .hot').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-        $('.forHot').addClass('display');
-        $('.forHot').siblings().removeClass('display');
-    })
-    $('.news .nav .normal').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-        $('.forNormal').addClass('display');
-        $('.forNormal').siblings().removeClass('display');
-    })
-    $('.news .nav .deposit').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-        $('.forDeposit').addClass('display');
-        $('.forDeposit').siblings().removeClass('display');
-    })
-})
-
-//.gameList .love
-$(function(){
-    $('.gameList .love').click(function(){
-        $(this).toggleClass('active');
-    })
-})
-//slotBody li 切換
-$(function(){
-    $('.slotBody .nav li').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-    })
-})
-//slotPage 遊戲展開
-$(function(){
-    $('.pfName .all').click(function(){
-        $('.platforms').removeClass('display');
-        $($(this).closest('.platforms')).addClass('display');
-        $($(this).closest('.pfName').next('.gameList')).addClass('active');
-        $($(this).closest('.pfName')).addClass('active');
-    })
-
-    $('.pfName .back').click(function(){
-        $('.platforms').addClass('display');
-        $('.pfName.active,.gameList.active').removeClass('active');
-    })
-})
-
-//eventList+eventDetail 切換
-$(function(){
-    $('.eventBox .btnBox button.forEvent_1').click(function(){
-        $('.eventList').removeClass('display');
-        $('.eventDetail.event_1').addClass('display');
-    })
-    $('.eventBox .btnBox button.forEvent_2').click(function(){
-        $('.eventList').removeClass('display');
-        $('.eventDetail.event_2').addClass('display');
-    })
-    $('.eventBox .btnBox button.forEvent_3').click(function(){
-        $('.eventList').removeClass('display');
-        $('.eventDetail.event_3').addClass('display');
-    })
-
-    $('.eventDetail .back').click(function(){
-        $('.eventList').addClass('display');
-        $('.eventDetail').removeClass('display');
-    })
-})
-
-//vipWrap切換
-$(function(){
-    $('.levelEnjoy .more').click(function(){
-        $('.outMode').removeClass('display');
-        $('.innerMode').addClass('display');
-    })
-
-    $('.detailTitle .back').click(function(){
-        $('.outMode').addClass('display');
-        $('.innerMode').removeClass('display');
-    })
-})
-
-//.memberWrap 切換
-$(function(){
-    $('.memberWrap .tabs li:nth-of-type(1)').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-        $('.dataWrap').addClass('display');
-        $('.dataWrap').siblings().removeClass('display');
-    })
-
-    $('.memberWrap .tabs li:nth-of-type(2)').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-        $('.platformWrap').addClass('display');
-        $('.platformWrap').siblings().removeClass('display');
+    $(".mailWrap .bottom .list>ul li").on("click",function(){
+        $(this)
+        .addClass("road")
     })
 })
 
 //dealWrap
 $(function(){
     $(".dealWrap .tabs li").click(function(){
-        $(this).addClass("active");
-        $(this).siblings().removeClass("active");
-    })
-
-    $(".dealWrap .tabs li:eq(0)").click(function(){
-        $(".dealBox").addClass("display");
-        $(".dealBox").siblings().removeClass("display");
-    })
-    $(".dealWrap .tabs li:eq(1)").click(function(){
-        $(".waterBox").addClass("display");
-        $(".waterBox").siblings().removeClass("display");
-    })
-
-    $(".dealWrap .search .btnBox button").click(function(){
         $(this)
         .addClass("active")
         .siblings().removeClass("active");
+
+        var n = $(this).index();
+
+        $(".dealWrap>div:eq("+ n +")")
+        .addClass("display")
+        .siblings().removeClass("display");
     })
 
-    $(".dealWrap .inputBox select").change(function(){
-        var n = $(".dealWrap .inputBox select").val();
-
-        if(n == 1) {
-            $(".dealWrap .fakeTable.deposit")
-            .addClass("display")
-            .siblings().removeClass("display");
-        }
-        else if(n == 2) {
-            $(".dealWrap .fakeTable.withdrawal")
-            .addClass("display")
-            .siblings().removeClass("display");
-        }
-        else if(n == 3) {
-            $(".dealWrap .fakeTable.transfer")
-            .addClass("display")
-            .siblings().removeClass("display");
-        }
-        else if(n == 4) {
-            $(".dealWrap .fakeTable.water")
-            .addClass("display")
-            .siblings().removeClass("display");
-        }
-        else if(n == 5) {
-            $(".dealWrap .fakeTable.active")
-            .addClass("display")
-            .siblings().removeClass("display");
-        }
-        else if(n == 6) {
-            $(".dealWrap .fakeTable.event")
-            .addClass("display")
-            .siblings().removeClass("display");
-        }
-        else if(n == 7) {
-            $(".dealWrap .fakeTable.else")
-            .addClass("display")
-            .siblings().removeClass("display");
-        }
+    $(".dealWrap .search select").on("change",function(){
+        var n = $(this).val();
+        
+        $(".dealWrap .dealBox .tableWrap:eq("+ n +")")
+        .addClass("display")
+        .siblings().removeClass("display");
     })
 })
 
-//mailWrap 切換
+//point
 $(function(){
-    $('.mailWrap .top a:nth-of-type(1)').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-        $('.mailWrap .bottom.active').addClass('display');
-        $('.mailWrap .bottom.ann').removeClass('display');
-    })
-    $('.mailWrap .top a:nth-of-type(2)').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-        $('.mailWrap .bottom.active').removeClass('display');
-        $('.mailWrap .bottom.ann').addClass('display');
-    })
-
-    $('.mailWrap .tabs li').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-    })
-
-    $('.mailWrap .btnBox .edit').click(function(){
-        $('.mailWrap .btnBox.nor').removeClass('display');
-        $('.mailWrap .btnBox.edit').addClass('display');
-
-        $(".mailWrap .list li").addClass("editing");
-    })
-    $('.mailWrap .btnBox .finish').click(function(){
-        $('.mailWrap .btnBox.nor').addClass('display');
-        $('.mailWrap .btnBox.edit').removeClass('display');
-
-        $(".mailWrap .list li").removeClass("editing");
-    })
-
-    $('.mailWrap.outMode .list li').click(function(){
-        $('.mailWrap.outMode').removeClass('display');
-        $('.mailWrap.innerMode').addClass('display');
-    })
-    $('.mailWrap.innerMode .title button').click(function(){
-        $('.mailWrap.outMode').addClass('display');
-        $('.mailWrap.innerMode').removeClass('display');
-    })
-
-    $(".mailWrap .active .tabs li:eq(0)").click(function(){
-        $(".mailWrap .active .system").addClass("display");
-        $(".mailWrap .active .system").siblings("ul").removeClass("display");
-    })
-    $(".mailWrap .active .tabs li:eq(1)").click(function(){
-        $(".mailWrap .active .personal").addClass("display");
-        $(".mailWrap .active .personal").siblings("ul").removeClass("display");
-    })
-
-    $(".mailWrap .ann .tabs li:eq(0)").click(function(){
-        $(".mailWrap .ann .hot").addClass("display");
-        $(".mailWrap .ann .hot").siblings("ul").removeClass("display");
-    })
-    $(".mailWrap .ann .tabs li:eq(1)").click(function(){
-        $(".mailWrap .ann .nor").addClass("display");
-        $(".mailWrap .ann .nor").siblings("ul").removeClass("display");
-    })
-    $(".mailWrap .ann .tabs li:eq(2)").click(function(){
-        $(".mailWrap .ann .dep").addClass("display");
-        $(".mailWrap .ann .dep").siblings("ul").removeClass("display");
+    $(".pointWrap .tableWrap li:not(.title) .wordWrap p:last-child").click(function(){
+        $(this).closest("li")
+        .toggleClass("active");
     })
 })
 
-//eventWrap 切換
+//betWrap
 $(function(){
-    $(".eventWrap .tabs li").click(function(){
-        $(this).addClass("active");
-        $(this).siblings().removeClass("active");
-    })
-
-    $('.eventWrap .tabs li:nth-of-type(1)').click(function(){
-        $('.eventMiddle .eventBox').addClass('display');
-        $('.eventMiddle .eventBox').siblings().removeClass('display');
-    })
-    $('.eventWrap .tabs li:nth-of-type(2)').click(function(){
-        $('.eventMiddle .eventBoxAl').addClass('display');
-        $('.eventMiddle .eventBoxAl').siblings().removeClass('display');
-    })
-    $('.eventWrap .tabs li:nth-of-type(3)').click(function(){
-        $('.eventMiddle .eventRecord').addClass('display');
-        $('.eventMiddle .eventRecord').siblings().removeClass('display');
+    $(".betWrap .tableWrap li:not(.title) .wordWrap p:last-child").click(function(){
+        $(this).closest("li")
+        .toggleClass("active");
     })
 })
 
-//betWrap 搜尋開關
+//.news切換
 $(function(){
-    $('.betWrap .fakeTable .arrow_ic').click(function(){
-        $($(this).closest('li')).toggleClass('active');
-    })
-
-    $(".betWrap .timeGroup .btnBox button").click(function(){
+    $(".news .tabs li").on("click",function(){
         $(this)
         .addClass("active")
-        .siblings().removeClass("active");
+        .siblings().removeClass("active")
+
+        var n = $(this).index();
+
+        $(".news .content ul:eq("+ (n + 1) +")")
+        .addClass("display")
+        .siblings().removeClass("display");
+    })
+})
+
+//jumpWindow
+$(function(){
+    $(".jumpWindow .close_ic,.jumpWindow .close").on("click",function(){
+        $(".filter,.jumpWindow")
+        .removeClass("display");
+    })
+
+    //流水注單查詢
+    $(".dealWrap .waterBox table button").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.listWindow")
+        .addClass("display");
+    })
+
+    //更變手機
+    $(".memberWrap .changePhone").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.phoneWindow")
+        .addClass("display");
+    })
+    $(".phoneWindow .check").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.plsGo.forPhone")
+        .addClass("display");
+    })
+
+    //更變密碼
+    $(".memberWrap .changePassword button").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.passwordWindow")
+        .addClass("display");
+    })
+    $(".passwordWindow button").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.plsGo.forPw")
+        .addClass("display");
+    })
+
+    //活動彈窗
+    $(".eventWrap .btnBox button").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.eventWindow")
+        .addClass("display");
+    })
+
+    //投注彈窗
+    $(document).on("click",".openBet",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.betWindow")
+        .addClass("display");
+    })
+
+    //最新消息
+    $(document).on("click",".openNews",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.news")
+        .addClass("display");
+    })
+
+    //請先登入
+    $(document).on("click",".unlogin",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.plsGo")
+        .addClass("display");
+    })
+
+    //忘記密碼
+    $("header .forget").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.forgetPassword")
+        .addClass("display");
+    })
+
+    //查看活動
+    $(".eventApplyWrap .apply").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.plsGo")
+        .addClass("display");
+    })
+    $(".eventApplyWrap .check").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.checkEvent")
+        .addClass("display");
+    })
+
+    //查詢紅利
+    $(".pointWrap .wordWrap .open").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.pointWindow")
+        .addClass("display");
+    })
+
+    //代理申請
+    $("header .joinAgent, .agentWrap .agBlock.joinUS .joinAgent").on("click",function(){
+        $(".jumpWindow")
+        .removeClass("display");
+
+        $(".filter,.jumpWindow.agentWindow")
+        .addClass("display");
+    })
+})
+
+//helpPage
+$(function(){
+    $('.helpPage .nav .title').click(function(){
+        $('.nav .box')
+        .removeClass('display');
+
+        $(this)
+        .addClass('active')
+        .siblings().removeClass('active');
+
+        $(this).next(".box")
+        .addClass('display');
+    })
+
+    $('.helpPage .nav .box li').click(function(){
+        $('.nav .box li')
+        .removeClass('active');
+
+        $(this)
+        .addClass('active');
+
+        if($(this).hasClass("forNew"))
+        {
+            var n = $(this).index();
+
+            $(".helpWrap .new:eq("+ n +")")
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
+        else if($(this).hasClass("forQues"))
+        {
+            var n = $(this).index();
+
+            $(".helpWrap .ques:eq("+ n +")")
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
+        else if($(this).hasClass("forUs"))
+        {
+            var n = $(this).index();
+
+            $(".helpWrap .us:eq("+ n +")")
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
+        else if($(this).hasClass("forApp"))
+        {
+            var n = $(this).index();
+
+            $(".helpWrap .app:eq("+ n +")")
+            .addClass("display")
+            .siblings().removeClass("display");
+        }
     })
 })
 
 //deposit切換
 $(function(){
     $(".depositWrap .list li").click(function(){
-        $(this).addClass("active");
-        $(this).siblings().removeClass("active");
-        $(".depositWrap .bottom .title,.depositWrap .bottom .fakeTable").removeClass("display");
+        $(this)
+        .addClass("active")
+        .siblings().removeClass("active");
+        $(".depositWrap .bottom .type")
+        .removeClass("display");
     })
 
-    $(".depositWrap .list li:eq(0)").click(function(){
-        $(".depositWrap .bottom .card").addClass("display");
+    $(".depositWrap .list .card").click(function(){
+        $(".depositWrap .bottom .type.card")
+        .addClass("display");
     })
-    $(".depositWrap .list li:eq(1)").click(function(){
-        $(".depositWrap .bottom .tiger").addClass("display");
-    })
-    $(".depositWrap .list li:eq(2)").click(function(){
-        $(".depositWrap .bottom .wallet").addClass("display");
-    })
-    $(".depositWrap .list li:eq(3)").click(function(){
-        $(".depositWrap .bottom .usdt").addClass("display");
-    })
-    $(".depositWrap .list li:eq(4)").click(function(){
-        $(".depositWrap .bottom .venus").addClass("display");
+    $(".depositWrap .list .vega").click(function(){
+        $(".depositWrap .bottom .type.vega")
+        .addClass("display");
     })
 
-    $(".depositWrap .bottom .check").click(function(){
-        $(".depositWrap .bottom .title,.depositWrap .bottom .fakeTable").removeClass("display");
-        $(".depositWrap .bottom .cardCheck,.depositWrap .bottom .title.card").addClass("display");
+    $(".depositWrap .bottom .card .check").click(function(){
+        $(".depositWrap .bottom .type.cardReady")
+        .addClass("display")
+        .siblings().removeClass("display");
     })
 })
 
-//withdrawal+transfer 展開
+//checkBox
 $(function(){
-    $('.withdrawalWrap .platformBox .open button').click(function(){
-        $($(this).closest('div').prev('ul')).toggleClass('active');
-        $(this).closest(".open")
+    $(".checkBox").on("change",function(event){
+        $(this)
         .toggleClass("active");
-    })
-    $('.transferWrap .platform .open button').click(function(){
-        $($(this).closest('div').prev('ul')).toggleClass('active');
-        $(this).closest(".open")
-        .toggleClass("active");
-    })
-})
 
-//helpPage .nav列切換
-$(function(){
-    $('.nav .title').click(function(){
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-        $('.nav .box').removeClass('display');
-        $($(this).next('.box')).addClass('display');
-    })
-
-    $('.nav .box li').click(function(){
-        $('.nav .box li').removeClass('active');
-        $(this).addClass('active');
-    })
-})
-//helpPage .nav 連動切換
-$(function(){
-    $(".forNew").click(function(){
-        var n = $(this).index();
-
-        $(".helpWrap .new:eq("+ n +")")
-        .addClass("display")
-        .siblings().removeClass("display");
-    })
-
-    $(".forQues").click(function(){
-        var n = $(this).index();
-
-        $(".helpWrap .ques:eq("+ n +")")
-        .addClass("display")
-        .siblings().removeClass("display");
-    })
-
-    $(".forUs").click(function(){
-        var n = $(this).index();
-
-        $(".helpWrap .us:eq("+ n +")")
-        .addClass("display")
-        .siblings().removeClass("display");
+        event.stopPropagation();
     })
 })
 
@@ -740,165 +840,79 @@ $(function(){
     })
 })
 
-//transfer切換
-$(function(){
-    $(".withdrawalWrap .bottom form select").change(function(){
-        var n = $(".withdrawalWrap .bottom form select").val();
-
-        if(n == 1) {
-            $(".withdrawalWrap .bottom form.bankcard")
-            .addClass("display")
-            .siblings().removeClass("display");
-        }
-    })
-})
-
-//point
-$(function(){
-    $(".pointWrap .tabs li").click(function(){
-        $(this)
-        .addClass("active")
-        .siblings().removeClass("active");
-    })
-    $(".pointWrap .tabs li:eq(0)").click(function(){
-        $(".pointWrap .fakeTable")
-        .addClass("display")
-        .siblings().removeClass("display");
-    })
-    $(".pointWrap .tabs li:eq(1)").click(function(){
-        $(".pointWrap .recordTable")
-        .addClass("display")
-        .siblings().removeClass("display");
-    })
-
-    $(".pointWrap .search .btnBox button").click(function(){
-        $(this)
-        .addClass("active")
-        .siblings().removeClass("active");
-    })
-
-    $(".pointWrap .fakeTable .arrow_ic").click(function(){
-        $(this).closest("li")
-        .toggleClass("active");
-    })
-})
-
-//register
-$(function(){
-    var phone = $(".registerWrap .phone")
-    var btn = $(".registerWrap .codeBtn");
-
-    $(phone).focus(function(){
-        $(btn)
-        .attr("disabled",false);
-    })
-    $(phone).blur(function(){
-        $(btn)
-        .attr("disabled",true);
-    })
-})
 //退傭代理QA-leftArea
-$(function(){
-	$(".qaOutter").scroll(function () {
-        var scrollVal = $(this).scrollTop();
-        if(scrollVal < 200){
-            $(".leftArea li:eq(0)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        } else if(scrollVal >= 900){
-            $(".leftArea li:eq(2)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        } else if(scrollVal >= 200){
-            $(".leftArea li:eq(1)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        }
-	})
-})
+// $(function(){
+// 	$(".qaOutter").scroll(function () {
+//         var scrollVal = $(this).scrollTop();
+//         if(scrollVal < 200){
+//             $(".leftArea li:eq(0)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         } else if(scrollVal >= 900){
+//             $(".leftArea li:eq(2)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         } else if(scrollVal >= 200){
+//             $(".leftArea li:eq(1)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }
+// 	})
+// })
 //退傭代理Rule-leftArea
-$(function(){
-	$(".ruleOutter").scroll(function () {
-        var scrollVal = $(this).scrollTop();
-        if(scrollVal < 100){
-            $(".leftArea li:nth-of-type(1)") 
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 6000){
-            $(".leftArea li:nth-of-type(11)") 
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 5600){
-            $(".leftArea li:nth-of-type(10)") 
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 5500){
-            $(".leftArea li:nth-of-type(9)") 
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 5400){
-            $(".leftArea li:nth-of-type(9)") 
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 5300){
-            $(".leftArea li:nth-of-type(8)") 
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 4600){
-            $(".leftArea li:nth-of-type(7)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 3400){
-            $(".leftArea li:nth-of-type(6)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 2200){
-            $(".leftArea li:nth-of-type(5)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 1300){
-            $(".leftArea li:nth-of-type(4)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 800){
-            $(".leftArea li:nth-of-type(3)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        }else if(scrollVal >= 100){
-            $(".leftArea li:nth-of-type(2)")
-            .addClass("active")
-            .siblings().removeClass("active");
-        }
+// $(function(){
+// 	$(".ruleOutter").scroll(function () {
+//         var scrollVal = $(this).scrollTop();
+//         if(scrollVal < 100){
+//             $(".leftArea li:nth-of-type(1)") 
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 6000){
+//             $(".leftArea li:nth-of-type(11)") 
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 5600){
+//             $(".leftArea li:nth-of-type(10)") 
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 5500){
+//             $(".leftArea li:nth-of-type(9)") 
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 5400){
+//             $(".leftArea li:nth-of-type(9)") 
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 5300){
+//             $(".leftArea li:nth-of-type(8)") 
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 4600){
+//             $(".leftArea li:nth-of-type(7)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 3400){
+//             $(".leftArea li:nth-of-type(6)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 2200){
+//             $(".leftArea li:nth-of-type(5)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 1300){
+//             $(".leftArea li:nth-of-type(4)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 800){
+//             $(".leftArea li:nth-of-type(3)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }else if(scrollVal >= 100){
+//             $(".leftArea li:nth-of-type(2)")
+//             .addClass("active")
+//             .siblings().removeClass("active");
+//         }
 
-        console.log(scrollVal);
-	})
-})
-
-//排行榜表單切換
-$(document).on("click",".center.rank .content .data",function(){
-    $(this)
-    .addClass('active')
-    .find('.titleic')
-    .text("─")
-    .css("font-size","23px")
-    .css("margin-left","25px");
-})
-$(document).on("click",".center.rank .content .data.active",function(){
-    $(this)
-    .removeClass('active')
-    .find('.titleic')
-    .text("+")
-    .css("font-size","37px")
-    .css("margin-left","20px");
-})
-
-//sendBtn
-$(function(){
-    $(".sendBtn").on("click",function(){
-        $(".jumpWindow")
-        .removeClass("display");
-
-        $(".filter,.plsGo")
-        .addClass("display");
-    })
-})
+//         console.log(scrollVal);
+// 	})
+// })
