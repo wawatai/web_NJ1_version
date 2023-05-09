@@ -1,49 +1,61 @@
 .ad {
     width: 100%;
     min-width: 1400px;
+    padding-top: 180px;
+    margin-bottom: 80px;
 
     .single-item {
-        margin: 0;
+        width: 1400px;
+        margin: 0 auto;
 
         .slick-slide {
+            width: 100%;
+            height: 500px;
+            background: $ad_BG;
             outline: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
 
-        .slick-arrow {
-            z-index: 1;
-            width: 285px;
-            height: 494px;
+        // .slick-arrow {
+        //     z-index: 1;
+        //     width: 285px;
+        //     height: 494px;
 
-            &::before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%,-50%) rotate(-45deg);
-                width: 15px;
-                height: 15px;
-                border: solid 6px $ad_Arrow;
-                border-width: 2px 0 0 2px;
-            }
+        //     &::before {
+        //         content: "";
+        //         position: absolute;
+        //         top: 50%;
+        //         left: 50%;
+        //         transform: translate(-50%,-50%) rotate(-45deg);
+        //         width: 15px;
+        //         height: 15px;
+        //         border: solid 6px $ad_Arrow;
+        //         border-width: 2px 0 0 2px;
+        //     }
 
-            &.slick-prev {
-                left: 0px;
-            }
+        //     &.slick-prev {
+        //         left: 0px;
+        //     }
 
-            &.slick-next {
-                right: 0px;
+        //     &.slick-next {
+        //         right: 0px;
                 
-                &::before {
-                    transform: translate(-50%,-50%) rotate(45deg) scaleX(-1);
-                }
-            }
-        }
+        //         &::before {
+        //             transform: translate(-50%,-50%) rotate(45deg) scaleX(-1);
+        //         }
+        //     }
+        // }
 
         .slick-dots {
-            bottom: 0px;
+            bottom: -36px;
 
             li {
-                margin: 0;
+                margin: 0 10px;
 
                 &.slick-active {
 
@@ -54,15 +66,17 @@
                         }
                     }
                 }
-
+                
                 button {
-
+                    padding: 0;
+                    
                     &::before {
-                        width: 6px;
-                        height: 6px;
-                        background: $ad_Arrow;
-                        border-radius: 50%;
-                        color: transparent;
+                        width: 30px;
+                        height: 4px;
+                        background: $ad_dot;
+                        border-radius: 30px;
+                        font-size: 0;
+                        transition: 0.3s all;
                     }
                 }
             }

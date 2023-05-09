@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.25">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../js/slick-1.8.1/slick/slick.css">
-    <link rel="stylesheet" href="../js/slick-1.8.1/slick/slick-theme.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script src="../js/slick-1.8.1/slick/slick.min.js"></script>
     <script src="../js/javascript.js"></script>
-    <link rel="shortcut icon" href="../images/NJLOGO_64x64.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/MEXLOGO_64x64.ico" type="image/x-icon">
 </head>
 <body>
     <main>
@@ -19,104 +15,99 @@
             <div class="bigBox">
                 <div class="title">
                     <img src="../images/icon/logo.png" class="logo">
-                    <p>
-                        <i class="register_ic"></i>
-                        登録
-                    </p>
                 </div>
                 <div class="inputBox">
+                    <p class="innerTitle">Únete</p>
                     <form>
                         <label>
-                            <p class="smallTitle">アカウントID</p>
-                            <div>
+                            <p>
                                 <em>※</em>
-                                <input type="text">
-                            </div>
-                            <p class="remind">アカウント番号には、英字（半角英字・数字のみでも可能です。）が含まれている必要があります。少なくとも6文字必要です</p>
+                                Cuenta
+                            </p>
+                            <input type="text">
                         </label>
                         <label>
-                            <p class="smallTitle">パスワード</p>
-                            <div>
+                            <p>
                                 <em>※</em>
-                                <input type="text">
-                                <i class="eye_ic"></i>
-                            </div>
-                            <p class="remind">英語の数字と限定された特殊記号（@._$#%^&*+-）を使用できます</p>
-                        </label>
-                        <label>
-                            <p class="smallTitle">パスワード再確認</p>
+                                Número de teléfono móvil
+                            </p>
                             <div>
-                                <em>※</em>
                                 <input type="text">
+                                <button>
+                                    Código de
+                                    <br>
+                                    verificación
+                                </button>
                             </div>
                         </label>
                         <label>
-                            <p class="smallTitle">お名前</p>
-                            <div>
+                            <p>
                                 <em>※</em>
-                                <input type="text">
-                            </div>
+                                Contraseña
+                            </p>
+                            <input type="text">
                         </label>
                         <label>
-                            <p class="smallTitle">誕生日</p>
-                            <div>
+                            <p>
                                 <em>※</em>
-                                <input type="text">
-                                <i class="date_ic"></i>
-                            </div>
+                                Código de verificación
+                            </p>
+                            <input type="text">
+                        </label>
+                        <label>
+                            <p>
+                                <em>※</em>
+                                Confirmar contraseña
+                            </p>
+                            <input type="text">
+                        </label>
+                        <label>
+                            <p>
+                                <em>※</em>
+                                Email
+                            </p>
+                            <input type="text">
+                        </label>
+                        <label>
+                            <p>
+                                <em>※</em>
+                                Nombre real
+                            </p>
+                            <input type="text">
+                        </label>
+                        <label>
+                            <p>Código de invitación</p>
+                            <input type="text">
+                        </label>
+                        <label>
+                            <p>
+                                <em>※</em>
+                                Cumpleaños
+                            </p>
+                            <input type="text" placeholder="yyyy-mm-dd">
+                        </label>
+                        <label>
+                            <p>LINE ID</p>
+                            <input type="text">
+                        </label>
+                        <label>
+                            <p>Skype ID</p>
+                            <input type="text">
                         </label>
                     </form>
-                    <form>
-                        <label>
-                            <p class="smallTitle">携帯電話</p>
-                            <div>
-                                <em>※</em>
-                                <input type="text" class="phone">
-                                <button class="codeBtn" disabled>認証コードを取得する</button>
-                            </div>
+                    <div class="check">
+                        <label class="checkBox">
+                            <input type="checkbox">
                         </label>
-                        <label>
-                            <p class="smallTitle">携帯認証コード</p>
-                            <div>
-                                <em>※</em>
-                                <input type="text">
-                            </div>
-                        </label>
-                        <label>
-                            <p class="smallTitle">メールアドレス</p>
-                            <div>
-                                <em>※</em>
-                                <input type="text">
-                            </div>
-                        </label>
-                        <label>
-                            <p class="smallTitle">招待コード</p>
-                            <div>
-                                <input type="text">
-                            </div>
-                            <p class="remind">紹介コードがない場合は記入しないでください</p>
-                        </label>
-                        <label>
-                            <p class="smallTitle">LINE ID</p>
-                            <div>
-                                <input type="text" value="USDT" class="select"> <div class="arrow"></div>
-                            </div>
-                        </label>
-                    </form>
-                </div>
-                <div class="check">
-                    <div class="checkBox">
-                        <input type="checkbox">
                         <p>
-                            全部読んで同意する
-                            <span class="rule">利用規約とプライバシーポリシー</span>
+                            He leído y acepto
+                            <a href="#">Términos y Política de Privacidad</a>
                         </p>
                     </div>
-                    <p class="remind">利用規約とプライバシーポリシーを読み、同意してください</p>
-                </div>
-                <div class="btnBox">
-                    <button onclick="window.location.href='../index.html'">戻る</button>
-                    <button>確認</button>
+                    <div class="btnBox">
+                        <button onclick="window.location.href='../index.html'">Atrás</button>
+                        <button>Confirmar</button>
+                    </div>
                 </div>
             </div>
         </div>

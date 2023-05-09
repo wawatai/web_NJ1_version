@@ -1,138 +1,103 @@
-//大背景色
-$BG: #292929;
-$gameWrapBG: #070707;
-$innerBG: #0d0d0d;
-$secondBG: #1f1f1f;
-$thirdBG: #181818;
-$lightBG: #2e2e2e;
-$darkBG: #000000;
+$mainBG_1: linear-gradient(30deg,#171229bf 0%,#2E2357bf 100%);
 
-//主border
-$Border: #b5833b;
-$Border_2: #ffc13c;
+$subBG_1: #171229;
+$subBG_2: #ffffff26;
 
-//主字色
-$mainFont_1: #ffc13c;
-$mainFont_2: #e2e2e2;
-$mainFont_3: #fb770a;
-$time: #d78f3a;
-$disable: #999999;
+$mainFont_1: #EDECFF;
+$mainFont_2: #BEBEBE;
 
-//提醒字色
-$remind: #35b751;
-$remind_sp: #e11515;
+$subFont_1: #FFCE0A;
+$subFont_2: #6795FF;
+$subFont_3: #FF7777;
 
-//選擇色
-$choose_Word: #ffc13c;
-$choose_Word2: #8f702d;
-$choose_Active: #ff4719;
-$choose_Border: #ff4719;
-$choose_BG: #101010;
+$mainBorder_1: #8A8A8A;
+$mainBorder_2: #EDECFF;
 
-//金錢色
-$money: #ffffff;
+$mainShadow_1: #00F9FF;
 
-//連結色
-$link: #0BD317;
-$link_2: #008599;
-$link_register: #1c39af;
+$remind_1: #94FFBF;
+$remind_2: #ff0000;
 
-//背景半透明黑
 $filter: #0000009e;
 
-//goTop
-$goTop_BG: #ddb90fe6;
-
-//彈窗色
-$jumpWindow_Header: linear-gradient(90deg,#ffae00,#fec026);
-$jumpWindow_Title: #181818;
-$jumpWindow_BG: #181818;
-$jumpWindow_Border: #ffc13c;
-
-//帳號低中高強度
-$low: #ff0000;
-$middle: #ff4719;
-$high: #5aa960;
-//帳號認證與未認證圖示背景
-$noCheck: #808080;
-$check: #05b900;
-
-//scrollBar樣式
-$scrollBar_thumb: #cccccc;
-$scrollBar_track: #ffffff;
-
-//fakeTable
-$fakeTable_BG: #272727;
-$fakeTable_TitleBorder: #c69c6d;
-$fakeTable_border: #b5833b;
-$fakeTable_Word: #ffc13c;
-
-//lv樣式
-@mixin level {
-    background: linear-gradient(to right,#4ffc21 0%,#09d217 99%);
-    color: #000000;
-    padding: 3px 8px;
-    border-radius: 5px;
-}
-
-//level升級條樣式
-@mixin levelBar {
-    background: #3e3e3e;
-    border-radius: 10px;
-    overflow: hidden;
-
-    li {
-        background: linear-gradient(to right,#4ffc21 0%,#09d217 100%);
-        height: 100%;
-        border-radius: 10px;
-    }
-}
-
-//header色
-$header_BG_1: #1f1f1f;
-$header_BG_2: #181818;
-$header_Color1: #ff9b1f;
-$header_Color2: #ffc13c;
-$header_Hover: #ff4719;
-$header_Forget: #ff9b1f;
-$header_langBorder: #5a481c;
-$header_langBtn: #f0cc6d;
+//header
+$header_BG: linear-gradient(to bottom,#000000 0%,#000000 70%,transparent 100%);
+$header_hoverBG: linear-gradient(to bottom, #000000 0%, #000000 70%, #220f5de6 100%);
+$header_scrollBG: #000000;
+$header_Hover: #A49FFC;
+// $header_Forget: #ff9b1f;
+// $header_langBorder: #5a481c;
+// $header_langBtn: #f0cc6d;
 //header用按鈕
 @mixin headerBtn_1 {
-    background: linear-gradient(to right,#ff4b33 0%,#d8001f 98%);
+    background: #242A4B;
+    border-radius: 10px;
     border: none;
-    color: #ffffff;
-    font-size: 15px;
+    color: #3894D3;
+    font-size: 18px;
     font-weight: bold;
-    padding: 0 5px;
-    border-radius: 5px;
+    transition: 0.3s all;
 
     &:hover,&:active,&.active {
-        background: #b9001b;
+        box-shadow: 0 0 0 2px #3894D3 inset;
     }
 }
 @mixin headerBtn_2 {
-    background: linear-gradient(to right,#a4dd41 0%,#329e36 100%);
+    background: transparent;
     border: none;
-    color: #ffffff;
-    font-size: 15px;
+    border-radius: 10px;
+    color: #EDECFF;
+    font-size: 18px;
     font-weight: bold;
-    padding: 0 5px;
-    border-radius: 3px;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right,#52119F 0%,#BD51F4 100%);
+        transition: 0.3s all;
+        z-index: -1;
+    }
 
     &:hover,&:active,&.active {
-        background: #329e36;
+        
+        &::before {
+            width: 200%;
+        }
+    }
+}
+@mixin headerInput {
+    background: #9EA2AB;
+    border: solid 1px transparent;
+    border-radius: 30px;
+    color: #404040;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 15px;
+
+    &::placeholder {
+        color: #404040;
+        font-size: 12px;
+    }
+
+    &:focus {
+        border-color: #707070;
     }
 }
 @mixin headerMoney {
-    display: block;
-    padding-right: 15px;
-    user-select: none;
-    color: #ff0000;
-    font-size: 16px;
+    color: #EDECFF;
+    font-size: 14px;
     font-weight: bold;
     position: relative;
     cursor: pointer;
+    user-select: none;
+    padding-right: 15px;
 
     &::before {
         content: "";
@@ -144,62 +109,85 @@ $header_langBtn: #f0cc6d;
         transform: translateY(-50%);
         border-style: solid;
         border-width: 6px 4px 0 4px;
-        border-color: #ff0000 transparent;
+        border-color: #EDECFF transparent;
     }
 }
 @mixin headerMoneyList {
-    background: #181818;
-    border: solid 1px #ca9d3d;
-    position: absolute;
-    left: 0;
-    top: 60px;
-    z-index: 20;
     display: none;
+    background: #2B2446;
+    border-radius: 16px;
     overflow-y: auto;
-
-    &::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #cccccc;
-        border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: #ffffff;
-        border-radius: 10px;
-    }
 
     &.display {
         display: block;
     }
 
-    li {
-        border-bottom: solid 1px #ca9d3d;
-        
-        div {
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 
-            p {
-                color: #ffc13c;
+    li {
+        width: 100%;
+        height: 50px;
+        padding: 0 16px;
+
+        &:last-child {
+
+            div {
+                border: none;
             }
         }
-    }
-}
-@mixin headerLang {
-    background: #181818;
-    border: none;
-    color: #ffd86e;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 0 67px 0 15px;
-    appearance: none;
-    cursor: pointer;
+        
+        div {
+            width: 100%;
+            height: 100%;
+            border-bottom: solid 1px #8A8A8A;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    option {
-        background: #181818;
-        color: #ffd86e;
+            p {
+                color: #EDECFF;
+                font-size: 14px;
+                font-weight: bold;
+                position: relative;
+
+                &.money {
+
+                    span {
+
+                        &.fail {
+                            color: #FF7777;
+                        }
+                    }
+
+                    i {
+                        display: none;
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: -6px;
+                        animation: circle 1s linear infinite;
+    
+                        &.display {
+                            display: block;
+                        }
+                    }
+    
+                    @keyframes circle {
+                        0% {
+                            transform: translateY(-50%) rotate(0deg);
+                        }
+    
+                        100% {
+                            transform: translateY(-50%) rotate(360deg);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 @mixin headerMailRemind {
@@ -221,187 +209,257 @@ $header_langBtn: #f0cc6d;
         display: flex;
     }
 }
-//headerNav
-$headerNav_Word: #ffc13c;
-$headerNav_Hover: #ff4719;
 //header下拉式選單
-$topGameList_BG: #1f1f1f;
-$topGameList_Title: #ffc13c;
-$topGameList_ArrowBG: #ffc13c;
-$topGameList_fixWord: #ffffff;
+$topGameList_BG: linear-gradient(to top,#120636 0%,#220F5De6 100%);
+// $topGameList_fixWord: #ffffff;
+@mixin underList_arrow {
+    background: linear-gradient(to bottom,#6140B3 0%,#469FE3 100%);
+    border-radius: 0 50px 50px 0;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.5;
 
-//ad
-$ad_Arrow: #ffffff;
-
-//mainWrap
-$quick_BG: #0000009e;
-$quick_Word: #ffffff;
-$quick_Hover: #181818;
-$type_Word: #f9d369;
+    &.active {
+        opacity: 1;
+    }
+}
 
 //marquee
-$marquee_Title: #ffc13c;
-$marquee_Word: #cd9c33;
-$marquee_BG: #272727;
+// $marquee_Title: #ffc13c;
+// $marquee_Word: #cd9c33;
+// $marquee_BG: #272727;
 
-//footer
-$footer_BG1: #2c2c2c;
-$footer_BG2: #191919;
-$footer_Title: #b1b1b1;
-$footer_Hover: #ff4b33;
-$footer_Partner_Title: #fefefe;
-$footer_Partner_Title: #fefefe;
-$footer_iframeBtn: #ffffff;
+//ad
+// $ad_Arrow: #ffffff;
+$ad_dot: #FFFFFF;
+$ad_BG: #0D0D0D;
 
-//gameWrap大title字漸層
-$gameWrap_Linear: #ff4719;
-//slot小窗字底
-$gameWrap_WordBG: #1f1f1f;
-$gameWrap_Word: #ffc13c;
-$gameWrap_Border: #ffc13c;
+//typeLine
+$typeLine_subColor: #00FFFF;
 
-//register
-$register_Border: #fff0ac;
-$register_Title: #ffdd85;
-$register_TitleBG: linear-gradient(to top,#141414 0%,#272727 100%);
-$register_BG: linear-gradient(to top,#d2ae63 8%,#f1dfa7 53%,#f1dfa7 65%,#fffde1 96%);
+//sideBar
+@mixin goTop {
+    background: linear-gradient(-45deg,#52119F 0%,#BD51F4 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s all;
 
-//vipCard字樣式
-@mixin cardWord {
-    color: #ffffff;
-    text-shadow: 1px 2px 3px #000000;
+    &.display {
+        opacity: 1;
+    }
+}
+
+//slotPage
+@mixin slotInput {
+    background: #ffffff80;
+    border-radius: 30px;
+    border: none;
+    color: #6B708D;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 40px;
+
+    &::placeholder {
+        color: #6B708D;
+    }
+}
+@mixin slotBtn_1 {
+    background: linear-gradient(to right,#E3C91C 0%,#F451BE 100%);
+    border: none;
+    border-radius: 10px;
+    color: #EDECFF;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 15px;
+
+    &:hover,&:active,&.active {
+        background: #F451BE;
+    }
+}
+
+//innerPage
+//lv樣式
+@mixin level {
+    display: block;
+    background: #BA38D2;
+    border-radius: 30px;
+    color: #EDECFF;
     font-size: 12px;
     font-weight: bold;
     text-align: center;
+    padding: 8px;
 }
 
-//bankCard樣式
-@mixin bankCard {
-    padding: 15px 17px 0;
-    border-radius: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-    &.empty {
-        background: linear-gradient(120deg, #232323 0%, #101010 100%);
-        padding: 0;
-        align-items: center;
-        justify-content: center;
-        border: solid 1px #ffc13c;
-
-        .text {
-            font-size: 14px;
-            letter-spacing: 1px;
-            color: #ffc13c;
-            font-weight: bold;
-            text-align: center;
-        }
-    }
-
-    .name {
-        font-size: 22px;
-        letter-spacing: 2px;
-        font-weight: bold;
-        color: #ffffff;
-        text-shadow: 0 2px 3px #000000b4;
-    }
-
-    .branch {
-        font-size: 14px;
-        letter-spacing: 1px;
-        font-weight: bold;
-        color: #ffffff;
-        text-shadow: 0 2px 3px #000000b4;
-    }
-
-    .account {
-
-        span {
-            font-size: 18px;
-            letter-spacing: 2px;
-            color: #ffffff;
-            font-weight: bold;
-            text-shadow: 0 2px 3px #000000b4;
-        }
-    }
-
-    .review {
-        color: #000000;
-    }
-}
-
-//mail
-@mixin mailCheckbox {
-    position: relative;
-
-    &::before {
-        content: "";
-        width: 16px;
-        height: 16px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        background: #101010;
-        border-radius: 50%;
-        border: solid 1px #b5833b;
-    }
-
-    &:checked {
-        
-        &::after {
-            content: "";
-            width: 10px;
-            height: 10px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            background: #ff4719;
-            border-radius: 50px;
-            z-index: 2;
-        }
-    }
-}
-@mixin mailHover {
-    background: #0d0d0d;
-}
-@mixin read {
-    background: #1f1f1f;
-
-    .title,
-    .msg,
-    .date {
-        color: #ababab;
-    }
-}
-
-//deposit
-$deposit_Title: #ff4719;
-$deposit_postNum: #ffffff;
-@mixin depositBtn {
-    background: #101010;
-    border-radius: 5px;
-    border: solid 1px #a88335;
-    color: #ffc13c;
-    font-size: 14px;
+//內頁左列快速選擇轉存提按鈕
+@mixin quick {
+    background: linear-gradient(to bottom,#6140B3 0%,#469FE3 100%);
+    border-radius: 50%;
+    color: #EDECFF;
+    font-size: 20px;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    padding-bottom: 2px;
+
+    &:hover,&:active,&.active {
+        background: #3894D3;
+    }
+}
+
+//內頁左側按鈕樣式
+@mixin innerLeftNav {
+    background: none;
+    border-radius: 16px;
+    color: #EDECFF;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    padding: 5px 10px;
-    box-sizing: border-box;
-    position: relative;
+    padding-left: 60px;
+    
+    &:hover,&:active,&.active {
+        background: #0000004d;
+        color: #6795FF;
+    }
+}
+
+//KYC 上傳樣式
+@mixin upload {
+    background: #0000006e;
+    border-radius: 15px;
+    border: 2px dashed #a4bfff70;
+    padding: 20px;
+
+    .add {
+        width: 59px;
+        height: 59px;
+        border-radius: 50px;
+        border: 1px solid #A4BFFF;
+        margin: 20px;
+        position: relative;
+
+        &::before,&::after {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background: #A4BFFF;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        &::after {
+            width: 1px;
+            height: 30px;
+        }
+    }
+
+    button {
+        width: auto;
+        height: 40px;
+        @include secondBtn;
+        padding: 0 20px;
+        margin-bottom: 15px;
+    }
+
+    .hint {
+        color: #A4BFFF;
+        font-size: 13px;
+        line-height: 20px;
+    }
+}
+
+//level升級條樣式
+@mixin levelBar {
+    background: #ffffff33;
+    border-radius: 10px;
     overflow: hidden;
 
-    &:hover,&:active {
-        background: #ffc13c;
-        color: #101010;
+    li {
+        background: #ffffff;
+        height: 100%;
+        border-radius: 10px;
     }
+}
+$card_textShadow: #00000080;
+
+//帳號低中高強度
+$low: #FF7777;
+$middle: #FFCE0A;
+$high: #00FF00;
+//帳號認證與未認證圖示背景
+$noCheck: #BEBEBE;
+$check: #64E564;
+
+//小錢包樣式
+@mixin smallWalletBox {
+    background: #00000026;
+    border-radius: 16px;
+    border: solid 1px #A4BFFF;
+    padding: 15px;
+}
+
+//bankCard樣式
+@mixin bankCard_empty {
+    background: #00000049;
+    border-radius: 16px;
+    border: solid 1px #A4BFFF;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+//mail
+@mixin mailBtn_1 {
+    background: #229890;
+    border: none;
+    border-radius: 12px;
+    color: #EDECFF;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 15px;
+
+    &:hover,&:active,&.active {
+        background: #007284;
+    }
+}
+@mixin mailBtn_2 {
+    background: #DB6161;
+    border: none;
+    border-radius: 12px;
+    color: #EDECFF;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 15px;
+
+    &:hover,&:active,&.active {
+        background: #D22424;
+    }
+}
+$mail_hoverBG: #00000067;
+
+//deposit
+@mixin depositBtn {
+    background: #1F1137;
+    border-radius: 16px;
+    border: solid 1px #A4BFFF;
+    color: #A4BFFF;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0;
 
     &.active {
         
@@ -419,7 +477,7 @@ $deposit_postNum: #ffffff;
         bottom: -20px;
         width: 40px;
         height: 40px;
-        background: #ffc13c;
+        background: #A4BFFF;
         transform: rotate(45deg);
     }
 
@@ -433,18 +491,35 @@ $deposit_postNum: #ffffff;
         height: 5px;
         border-style: solid;
         border-width: 0px 0px 1px 1px;
-        border-color: #000000;
+        border-color: #1F1137;
         transform: rotate(-45deg);
     }
 }
 
-//withdrawal
-$withdrawal_limitWord: #e34119;
+//agent
+$agBlock_BG: linear-gradient(to bottom, #2e2357b0 0%, #171229b0 100%);
+$agTable_Border: #6795FF;
+$agTable_BG: linear-gradient(to bottom, #469FE3 0%, #6140B3 70%);
+$agTable_BG2: #121A29;
+$agTable_BG3: #23263C;
+$ag_Jumpwindow_font: #A4BFFF;
 
-//help
-$help_remind: #ff4719;
-$help_innerBox_BG: #2a2a2a;
-$help_innerBox_Border: #979797;
+@mixin agentBtn {
+    background: linear-gradient(to right,#FF29F1 0%,#00B0FF 100%);
+    border: none;
+    border-radius: 50px;
+    color: #EDECFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 20px;
+
+    &:hover,&:active,&.active {
+        filter: brightness(0.7);
+    }
+}
+
+//彈窗
+$jumpWindow_BG: linear-gradient(-150deg,#171229 0%,#2E2357 100%);
 
 
 //button
@@ -452,198 +527,77 @@ $help_innerBox_Border: #979797;
 
 //最常用按鈕
 @mixin mainBtn {
-    background: linear-gradient(to right,#ff4b33 0%,#d8001f 98%);
+    background: linear-gradient(to right,#6140B3 0%,#469FE3 100%);
     border: none;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border-radius: 5px;
-
-    &:hover,&:active,&.active {
-        background: #b9001b;
-    }
-}
-//遊戲快速轉帳彈窗按鈕
-@mixin fastBtn {
-    background: #101010;
-    border: solid 1px #a88335;
-    color: #ffc13c;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: bold;
-    
-    &:hover,&:active,&.active {
-        background: #ffc13c;
-        color: #000000;
-        border-color: transparent;
-    }
-}
-$help_fastBtn_BG: #282828;
-//優惠
-@mixin eventBtn {
-    background: #f5951f;
-    border-radius: 5px;
-    border: none;
-    color: #000000;
-    font-size: 14px;
-    font-weight: bold;
-
-    &:hover,&:active,&.active {
-        background: #fb770a;
-        color: #ffffff;
-    }
-}
-@mixin eventBtn_2 {
-    background: #30ebff;
-    border-radius: 5px;
-    border: none;
-    color: #000000;
-    font-size: 14px;
-    font-weight: bold;
-
-    &:hover,&:active,&.active {
-        background: #0a92be;
-        color: #ffffff;
-    }
-}
-//邊框線按鈕異色_站內信
-@mixin mailBtn_1 {
-    background: #101010;
-    border: solid 1px #09d217;
-    color: #09d217;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 3px;
-
-    &:hover,&:active,&.active {
-        background: #09d217;
-        color: #ffffff;
-    }
-}
-@mixin mailBtn_2 {
-    background: #101010;
-    border: solid 1px #f73b2f;
-    color: #f73b2f;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 3px;
-
-    &:hover,&:active,&.active {
-        background: #f73b2f;
-        color: #ffffff;
-    }
-}
-//灰漸層+不同hover效果按鈕
-@mixin changeBtn {
-    background: #101010;
-    border: solid 1px #a88335;
-    border-radius: 3px;
-    color: #ffc13c;
-    font-size: 15px;
-    font-weight: bold;
-
-    &:hover,&:active,&.active {
-        background: #ffc13c;
-        color: #101010;
-    }
-}
-//內頁左列快速選擇轉存提按鈕
-@mixin quick {
-    background: linear-gradient(to left,#e48b0c 0%,#ffc62a 99%);
-    color: #000000;
-    border-radius: 50%;
-    font-size: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    padding-bottom: 2px;
-    box-sizing: border-box;
-
-    &:hover,&:active,&.active {
-        background: #ff4719;
-        color: #ffffff;
-    }
-}
-//大灰頁籤按鈕
-@mixin grayBtn {
-    background: #272727;
-    border: none;
-    border-radius: 5px 5px 0 0;
-    color: #999999;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    cursor: pointer;
-
-    &:hover,&:active,&.active {
-        background: linear-gradient(90deg,#ff4b33,#d8001f 98%);
-        color: #ffffff;
-    }
-}
-//黃底大按鈕
-@mixin footerBtn {
-    background: #ffbb17;
-    border-radius: 5px;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s all;
-    text-align: center;
-
-    &:hover,&:active,&.active {
-        background: #ff4719;
-        color: #ffffff;
-
-        &::before {
-            display: none;
-        }
-    }
-}
-//編輯按鈕
-@mixin editBtn {
-    background: #101010;
-    border-radius: 3px;
-    border: solid 1px #a88335;
-    position: relative;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 15px;
-        height: 15px;
-    }
-}
-//page
-@mixin page {
-    background: transparent;
     border-radius: 10px;
-    color: #ffffff;
+    color: #EDECFF;
     font-size: 14px;
     font-weight: bold;
+    padding: 0 15px;
 
     &:hover,&:active,&.active {
-        background: #ffc13c;
-        color: #000000;
+        background: #3894D3;
+    }
+}
+//次按鈕
+@mixin secondBtn {
+    background: linear-gradient(to right,#52119F 0%,#BD51F4 100%);
+    border: none;
+    border-radius: 10px;
+    color: #EDECFF;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 15px;
+
+    &:hover,&:active,&.active {
+        background: #BD51F4;
+    }
+}
+//次次按鈕
+@mixin thirdBtn {
+    background: #3D2F6E;
+    border: none;
+    border-radius: 16px 16px 0 0;
+    color: #EDECFF;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 20px;
+
+    &:hover,&:active,&.active {
+        background: linear-gradient(-120deg,#6140B3 0%,#469FE3 100%);
+        color: #ffffff;
+    }
+}
+
+//次次次按鈕
+@mixin forthBtn {
+    background: linear-gradient(to right, #40B372 0%, #2D7BC8 100%);
+    border: none;
+    border-radius: 10px;
+    color: #EDECFF;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 20px;
+
+    &:hover,&:active,&.active {
+        background: linear-gradient(-120deg,#40B372 0%, #2D7BC8 100%);
+        color: #ffffff;
     }
 }
 
 button:disabled {
-    background: #585858!important;
-    border: none!important;
-    color: #ffffff !important;
+    color: #BEBEBE !important;
+    background: #808080 !important;
     box-shadow: none !important;
-    cursor: not-allowed;
+    border: none !important;
 }
+
 
 
 //input
@@ -651,60 +605,107 @@ button:disabled {
 
 //最常用input
 @mixin mainInput {
-    background: #101010;
-    border: solid 1px #ffc13c;
-    color: #ffffff;
-    font-size: 16px;
+    background: #483F6E;
+    border-radius: 12px;
+    border: none;
+    color: #EDECFF;
+    font-size: 14px;
     font-weight: bold;
-    border-radius: 3px;
-    box-sizing: border-box;
     padding-left: 15px;
 
     &::placeholder {
-        color: #999999;
+        color: #EDECFF;
     }
-}
-//header用input
-@mixin headerInput {
-    background: #eaeaea;
-    border: none;
-    color: #333333;
-    font-size: 13px;
-    font-weight: bold;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 0 5px 0 12px;
 
-    &::placeholder {
-        color: #555555;
+    &:focus {
+        outline: solid 2px #ff0000;
     }
-}
-
-input:disabled {
-    background: #272727 !important;
-    border: none !important;
 }
 
 
 //select
 
 
+//最常用select
 @mixin mainSelect {
-    background: #101010;
-    border: solid 1px #ffc13c;
-    color: #ffffff;
-    font-size: 16px;
+    background: #483F6E;
+    border-radius: 12px;
+    border: none;
+    color: #EDECFF;
+    font-size: 14px;
     font-weight: bold;
-    padding-left: 15px;
-    border-radius: 3px;
-    background-image: linear-gradient(45deg,transparent 50%,#ffc13c 0),linear-gradient(135deg,#ffc13c 50%,transparent 0);
-    background-position: calc(100% - 20px) calc(1em + 2px),calc(100% - 15px) calc(1em + 2px);
+    background-image: linear-gradient(45deg,transparent 50%,#EDECFF 0),linear-gradient(135deg,#EDECFF 50%,transparent 0);
+    background-position: calc(100% - 20px) calc(1em + 5px),calc(100% - 15px) calc(1em + 5px);
     background-size: 5px 5px,5px 5px;
     background-repeat: no-repeat;
-    appearance: none;
+    padding-left: 15px;
 
     option {
-        background: #101010;
-        color: #ffffff;
+        background: #2B2446;
+        color: #EDECFF;
     }
 }
+
+
+//套件
+
+
+//pageBox
+@mixin pageBox {
+    background: #171229;
+    border-radius: 5px;
+    color: #EDECFF;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover,&:active,&.active {
+        background: #3E249B;
+    }
+}
+
+//checkBox
+@mixin checkBox {
+    position: relative;
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: #342A67;
+        border: solid 1px #EDECFF;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    &::after {
+        display: none;
+        content: "";
+        width: 60%;
+        height: 60%;
+        background: #EDECFF;
+        border-radius: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 1;
+    }
+
+    &.active {
+
+        &::after {
+            display: block;
+        }
+    }
+}
+
+//scrollBar樣式
+$scrollBar_thumb: #cccccc;
+$scrollBar_track: #ffffff;

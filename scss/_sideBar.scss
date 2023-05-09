@@ -2,18 +2,13 @@
 
     //邀請會員
     .inviteBtn {
-        width: 88px;
-        height: 90px;
+        width: 123px;
+        height: 119px;
+        background: none;
         position: fixed;
         right: 5px;
         top: 400px;
-        background: none;
-        display: none;
         z-index: 30;
-
-        &.display {
-            display: block;
-        }
 
         a {
             display: block;
@@ -26,20 +21,11 @@
     .goTop {
         width: 72px;
         height: 72px;
-        border-radius: 10px;
-        background: $goTop_BG;
+        @include goTop;
         position: fixed;
-        right: 10px;
-        bottom: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: 0.3s all;
-
-        &.display {
-            opacity: 1;
-        }
+        right: 20px;
+        bottom: 30px;
+        
 
         i {
             display: block;
